@@ -1,0 +1,192 @@
+/*
+================================================================
+== Immich - Bliss Theme
+==
+== This custom .css provides a complete light and dark mode overhaul
+== for an Immich theme, (very) distantly inspired by the "Bliss" wallpaper.
+==
+== This version uses the "Zalando Sans SemiExpanded" font from Google Fonts.
+================================================================
+*/
+
+/*
+================================================================
+== GOOGLE FONT IMPORT
+== This MUST be at the very top of the file.
+================================================================
+*/
+@import url("https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:wght@400;600&display=swap");
+
+/*
+================================================================
+== 1. CORE THEME & DESIGN VARIABLES
+== This block defines all colors and base UI overrides.
+================================================================
+*/
+:root {
+  /*
+  --- 1. CORE COLOR PALETTE (LIGHT - "DAY MODE") ---
+  */
+  --immich-primary: 101 184 222 !important; /* Sky Blue (#65B8DE) */
+  --immich-primary-rgb: 101, 184, 222 !important;
+  --immich-bg: 255 255 255 !important; /* Crisp white bg (#FFFFFF) */
+  --immich-bg-rgb: 255, 255, 255 !important;
+  --immich-fg: 17 21 23 !important; /* Soft black text (#111517) */
+  --immich-fg-rgb: 17, 21, 23 !important;
+  --immich-gray: 243 247 248 !important; /* Teal-tinted light gray (#F3F7F8) */
+  --immich-gray-rgb: 243, 247, 248 !important;
+  --immich-error: 182 80 80 !important;
+  --immich-error-rgb: 182, 80, 80 !important;
+  --immich-success: 90 125 68 !important;
+  --immich-success-rgb: 90, 125, 68 !important;
+  --immich-warning: 122 120 65 !important;
+  --immich-warning-rgb: 122, 120, 65 !important;
+
+  /* UI component variables (Light) */
+  --immich-ui-primary: 101 184 222 !important;
+  --immich-ui-light: 255 255 255 !important;
+  --immich-ui-dark: 17 21 23 !important;
+  --immich-ui-gray: 243 247 248 !important;
+  --immich-ui-danger: 182 80 80 !important;
+  --immich-ui-success: 90 125 68 !important;
+  --immich-ui-warning: 122 120 65 !important;
+
+  /*
+  --- 2. CORE COLOR PALETTE (DARK - "NIGHT MODE") ---
+  */
+  --immich-dark-primary: 101 184 222 !important; /* Sky Blue (#65B8DE) */
+  --immich-dark-primary-rgb: 101, 184, 222 !important;
+  --immich-dark-bg: 23 28 30 !important; /* Dark teal-gray bg (#171C1E) */
+  --immich-dark-bg-rgb: 23, 28, 30 !important;
+  --immich-dark-fg: 245 250 252 !important; /* Light off-white text */
+  --immich-dark-fg-rgb: 245, 250, 252 !important;
+  --immich-dark-gray: 34 38 39 !important; /* Darker gray for UI elements (#222627) */
+  --immich-dark-gray-rgb: 34, 38, 39 !important;
+  --immich-dark-error: 182 80 80 !important;
+  --immich-dark-error-rgb: 182, 80, 80 !important;
+  --immich-dark-success: 117 158 89 !important;
+  --immich-dark-success-rgb: 117, 158, 89 !important;
+  --immich-dark-warning: 145 142 86 !important;
+  --immich-dark-warning-rgb: 145, 142, 86 !important;
+
+  /*
+  --- 3. BASE UI OVERRIDES ---
+  */
+  /* 3a. Typography (Custom Font) */
+  --font-sans: "Zalando Sans SemiExpanded", system-ui, -apple-system, sans-serif !important;
+
+  /* 3b. Shape (Border Radius) */
+  /* Overrides default radius for a slightly sharper look */
+  --radius-md: 6px !important; /* for text boxes */
+  --radius-lg: 16px !important; /* for context menu */
+  --radius-xl: 8px !important; /* for album */
+  --radius-2xl: 24px !important; /* for option bar */
+
+  /* 3c. Motion (Animation Speed) */
+  /* Creates a slightly smoother, softer animation */
+  --default-transition-duration: 0.28s !important;
+  --default-transition-timing-function: cubic-bezier(
+    0.1,
+    0.9,
+    0.2,
+    1
+  ) !important;
+
+  /* 3d. Spacing (Base Unit) */
+  --spacing: 0.25rem !important;
+}
+
+/*
+================================================================
+== 2. DARK MODE UI-KIT OVERRIDES
+== Ensures UI components use the correct dark theme variables.
+================================================================
+*/
+.dark {
+  --immich-ui-primary: 101 184 222 !important; /* Sky Blue */
+  --immich-ui-light: 23 28 30 !important; /* Maps to dark-bg */
+  --immich-ui-dark: 245 250 252 !important; /* Maps to dark-fg */
+  --immich-ui-gray: 34 38 39 !important; /* Maps to dark-gray */
+  --immich-ui-danger: 182 80 80 !important; /* Maps to dark-error */
+  --immich-ui-success: 117 158 89 !important; /* Maps to dark-success */
+  --immich-ui-warning: 145 142 86 !important; /* Maps to dark-warning */
+}
+
+/*
+================================================================
+== 3. FONT & COMPONENT OVERRIDES
+================================================================
+*/
+
+/* Apply the custom font and default weight */
+html {
+  font-family: var(--font-sans) !important;
+  font-weight: 400 !important; /* Set default weight to 400 (Regular) */
+}
+
+/*
+--- 3a. Custom Component Styles ---
+*/
+
+/* --- Form inputs & labels (Light Mode) --- */
+.immich-form-label {
+  color: var(--color-placeholder-light) !important;
+  font-weight: 600 !important; /* Bolder labels for clarity */
+}
+
+.immich-form-input {
+  background-color: rgb(
+    var(--immich-gray-rgb)
+  ) !important; /* Use theme's light gray */
+  color: rgb(var(--immich-fg)) !important;
+  border-radius: var(--radius-md) !important;
+  border: 1px solid transparent !important; /* Use border for focus ring, not default state */
+  transition: all var(--default-transition-duration)
+    var(--default-transition-timing-function) !important;
+}
+.immich-form-input:focus {
+  border-color: rgb(var(--immich-primary)) !important;
+  background-color: rgb(
+    var(--immich-bg-rgb)
+  ) !important; /* Revert to white on focus */
+  box-shadow: 0 0 0 2px rgba(var(--immich-primary-rgb), 0.3) !important;
+}
+
+/* --- Form inputs & labels (Dark Mode) --- */
+.dark .immich-form-label {
+  color: rgb(var(--immich-dark-fg)) !important;
+  font-weight: 600 !important; /* Bolder labels for clarity */
+}
+
+.dark .immich-form-input {
+  /* Apply "frosted glass" effect */
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.7) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+
+  color: rgb(var(--immich-dark-fg)) !important;
+
+  /* Add subtle border for definition */
+  border: 1px solid rgba(var(--immich-dark-fg-rgb), 0.15) !important;
+}
+
+.dark .immich-form-input:focus {
+  border-color: rgb(var(--immich-dark-primary)) !important;
+  box-shadow: 0 0 0 2px rgba(var(--immich-dark-primary-rgb), 0.3) !important;
+}
+
+/* --- Map Popups (Dark Mode) --- */
+/* Applies frosted glass to map popups */
+.dark .maplibregl-popup .maplibregl-popup-content {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.75) !important;
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(var(--immich-dark-fg-rgb), 0.1) !important;
+  border-radius: var(--radius-xl) !important;
+}
+
+.dark .maplibregl-popup .maplibregl-popup-tip {
+  border-top-color: rgba(var(--immich-dark-gray-rgb), 0.75) !important;
+}
+
+/* End of Immich - Bliss Theme */
