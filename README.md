@@ -20,17 +20,17 @@ This repository provides three theme variants that I thought were a great fit fo
 
 This repository provides three theme variants based on your font preference.
 
-1.  **`theme_system.css` (Recommended)**
+1.  **`Immich Bliss - System Font.css`**
 
     - **Font:** System UI
-    - **Description:** Uses the native font of your operating system (e.g., San Francisco on macOS, Segoe UI on Windows). This provides the fastest performance with zero external requests.
+    - **Description:** Uses the native font of your operating system (e.g., San Francisco on macOS, Segoe UI on Windows). This can provides the fastest performance with zero external requests.
 
-2.  **`theme_inter.css`**
+2.  **`Immich Bliss - Inter Font.css`**
 
     - **Font:** [Inter](https://fonts.google.com/specimen/Inter)
     - **Description:** Uses the popular "Inter" font, which is known for its excellent legibility on screens. Requires a Google Fonts import.
 
-3.  **`theme_zalando.css`**
+3.  **`Immich Bliss - Zalando Sans.css`**
     - **Font:** [Zalando Sans SemiExpanded](https://fonts.google.com/specimen/Zalando+Sans+SemiExpanded)
     - **Description:** Uses the stylish and modern "Zalando Sans" font. Requires a Google Fonts import.
 
