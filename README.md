@@ -2,7 +2,7 @@
 
 **Immich Bliss** is a **Custom CSS** theme for [Immich](https://immich.app/): it layers on top of Immich’s default styles so you get a cohesive look without forking the app. Builds are plain CSS files you paste into **Administration → Settings → Custom Styling → Custom CSS**.
 
-## Terminology (same words as Immich and `@immich/ui`)
+## Terminology
 
 | Term | Meaning |
 | --- | --- |
