@@ -1,0 +1,1309 @@
+/*
+ * Immich Bliss Theme
+ * Generated file. Do not edit directly.
+ * Source: src/styles/**
+ * Font profile: zalando
+ * Performance profile: max-performance
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:wght@400;600&display=swap");
+
+/*
+ * Immich Bliss — override theme for Immich Custom CSS.
+ * Loads after Immich defaults; order is load order = cascade order.
+ *
+ * 1. Tokens → 2. Font + profile → 3. Foundations → 4. Components → 5. Utilities
+ *
+ * Build: dist/immich-bliss.css (see scripts/build-css.mjs)
+ */
+
+/* Source: src/styles/tokens/colors.css */
+:root {
+  /* Bliss text field surface (dark UI); #12191C */
+  --bliss-textbox-fill: 18 25 28 !important;
+  --bliss-textbox-fill-rgb: 18, 25, 28 !important;
+
+  /* Legacy Immich web tokens (still used by web/src/app.css). */
+  --immich-primary: 101 184 222 !important;
+  --immich-primary-rgb: 101, 184, 222 !important;
+  --immich-bg: 255 255 255 !important;
+  --immich-bg-rgb: 255, 255, 255 !important;
+  --immich-fg: 17 21 23 !important;
+  --immich-fg-rgb: 17, 21, 23 !important;
+  --immich-gray: 243 247 248 !important;
+  --immich-gray-rgb: 243, 247, 248 !important;
+  --immich-error: 182 80 80 !important;
+  --immich-error-rgb: 182, 80, 80 !important;
+  --immich-success: 90 125 68 !important;
+  --immich-success-rgb: 90, 125, 68 !important;
+  --immich-warning: 122 120 65 !important;
+  --immich-warning-rgb: 122, 120, 65 !important;
+  --immich-dark-primary: 101 184 222 !important;
+  --immich-dark-primary-rgb: 101, 184, 222 !important;
+  --immich-dark-bg: 23 28 30 !important;
+  --immich-dark-bg-rgb: 23, 28, 30 !important;
+  --immich-dark-fg: 245 250 252 !important;
+  --immich-dark-fg-rgb: 245, 250, 252 !important;
+  --immich-dark-gray: 34 38 39 !important;
+  --immich-dark-gray-rgb: 34, 38, 39 !important;
+  --immich-dark-error: 182 80 80 !important;
+  --immich-dark-error-rgb: 182, 80, 80 !important;
+  --immich-dark-success: 117 158 89 !important;
+  --immich-dark-success-rgb: 117, 158, 89 !important;
+  --immich-dark-warning: 145 142 86 !important;
+  --immich-dark-warning-rgb: 145, 142, 86 !important;
+
+}
+
+/*
+ * Tailwind v4 theme variables (light mode) — Immich web + @immich/ui.
+ * Scope light values so they do not leak into .dark via cascade/layer ordering.
+ */
+:root:not(.dark),
+.light {
+  --immich-ui-primary-50: oklch(97% 0.015 220) !important;
+  --immich-ui-primary-100: oklch(93% 0.03 220) !important;
+  --immich-ui-primary-200: oklch(86% 0.058 220) !important;
+  --immich-ui-primary-300: oklch(77% 0.088 220) !important;
+  --immich-ui-primary-400: oklch(69% 0.105 220) !important;
+  --immich-ui-primary-500: oklch(62% 0.105 220) !important;
+  --immich-ui-primary-600: oklch(54% 0.095 220) !important;
+  --immich-ui-primary-700: oklch(46% 0.08 220) !important;
+  --immich-ui-primary-800: oklch(38% 0.065 220) !important;
+  --immich-ui-primary-900: oklch(30% 0.048 220) !important;
+  --immich-ui-primary-950: oklch(22% 0.032 220) !important;
+
+  --immich-ui-success-50: oklch(0.98 0.01 150) !important;
+  --immich-ui-success-100: oklch(0.95 0.02 150) !important;
+  --immich-ui-success-200: oklch(0.9 0.04 150) !important;
+  --immich-ui-success-300: oklch(0.84 0.07 150) !important;
+  --immich-ui-success-400: oklch(0.77 0.1 150) !important;
+  --immich-ui-success-500: oklch(0.7 0.13 150) !important;
+  --immich-ui-success-600: oklch(0.59 0.11 150) !important;
+  --immich-ui-success-700: oklch(0.48 0.09 150) !important;
+  --immich-ui-success-800: oklch(0.38 0.07 150) !important;
+  --immich-ui-success-900: oklch(0.29 0.055 150) !important;
+  --immich-ui-success-950: oklch(0.22 0.042 150) !important;
+
+  --immich-ui-danger-50: oklch(0.975 0.01 25) !important;
+  --immich-ui-danger-100: oklch(0.94 0.02 25) !important;
+  --immich-ui-danger-200: oklch(0.89 0.045 25) !important;
+  --immich-ui-danger-300: oklch(0.82 0.08 25) !important;
+  --immich-ui-danger-400: oklch(0.75 0.12 25) !important;
+  --immich-ui-danger-500: oklch(0.68 0.16 25) !important;
+  --immich-ui-danger-600: oklch(0.57 0.135 25) !important;
+  --immich-ui-danger-700: oklch(0.46 0.11 25) !important;
+  --immich-ui-danger-800: oklch(0.36 0.09 25) !important;
+  --immich-ui-danger-900: oklch(0.27 0.07 25) !important;
+  --immich-ui-danger-950: oklch(0.2 0.05 25) !important;
+
+  --immich-ui-warning-50: oklch(0.985 0.008 85) !important;
+  --immich-ui-warning-100: oklch(0.96 0.02 85) !important;
+  --immich-ui-warning-200: oklch(0.92 0.04 85) !important;
+  --immich-ui-warning-300: oklch(0.88 0.07 85) !important;
+  --immich-ui-warning-400: oklch(0.84 0.1 85) !important;
+  --immich-ui-warning-500: oklch(0.8 0.13 85) !important;
+  --immich-ui-warning-600: oklch(0.67 0.11 85) !important;
+  --immich-ui-warning-700: oklch(0.53 0.09 85) !important;
+  --immich-ui-warning-800: oklch(0.4 0.07 85) !important;
+  --immich-ui-warning-900: oklch(0.28 0.05 85) !important;
+  --immich-ui-warning-950: oklch(0.22 0.04 85) !important;
+
+  --immich-ui-info-50: oklch(0.98 0.01 255) !important;
+  --immich-ui-info-100: oklch(0.93 0.025 255) !important;
+  --immich-ui-info-200: oklch(0.87 0.05 255) !important;
+  --immich-ui-info-300: oklch(0.81 0.08 255) !important;
+  --immich-ui-info-400: oklch(0.74 0.11 255) !important;
+  --immich-ui-info-500: oklch(0.67 0.14 255) !important;
+  --immich-ui-info-600: oklch(0.56 0.12 255) !important;
+  --immich-ui-info-700: oklch(0.45 0.1 255) !important;
+  --immich-ui-info-800: oklch(0.35 0.08 255) !important;
+  --immich-ui-info-900: oklch(0.26 0.06 255) !important;
+  --immich-ui-info-950: oklch(0.2 0.045 255) !important;
+
+  --immich-ui-light-50: oklch(99% 0.003 220) !important;
+  --immich-ui-light-100: oklch(97% 0.005 220) !important;
+  --immich-ui-light-200: oklch(93% 0.008 220) !important;
+  --immich-ui-light-300: oklch(87% 0.01 220) !important;
+  --immich-ui-light-400: oklch(74% 0.012 220) !important;
+  --immich-ui-light-500: oklch(61% 0.012 220) !important;
+  --immich-ui-light-600: oklch(50% 0.01 220) !important;
+  --immich-ui-light-700: oklch(40% 0.008 220) !important;
+  --immich-ui-light-800: oklch(30% 0.006 220) !important;
+  --immich-ui-light-900: oklch(22% 0.005 220) !important;
+  --immich-ui-light-950: oklch(15% 0.003 220) !important;
+
+  --immich-ui-dark-50: var(--immich-ui-light-950) !important;
+  --immich-ui-dark-100: var(--immich-ui-light-900) !important;
+  --immich-ui-dark-200: var(--immich-ui-light-800) !important;
+  --immich-ui-dark-300: var(--immich-ui-light-700) !important;
+  --immich-ui-dark-400: var(--immich-ui-light-600) !important;
+  --immich-ui-dark-500: var(--immich-ui-light-500) !important;
+  --immich-ui-dark-600: var(--immich-ui-light-400) !important;
+  --immich-ui-dark-700: var(--immich-ui-light-300) !important;
+  --immich-ui-dark-800: var(--immich-ui-light-200) !important;
+  --immich-ui-dark-900: var(--immich-ui-light-100) !important;
+  --immich-ui-dark-950: var(--immich-ui-light-50) !important;
+
+  --immich-ui-primary: var(--immich-ui-primary-500) !important;
+  --immich-ui-success: var(--immich-ui-success-500) !important;
+  --immich-ui-danger: var(--immich-ui-danger-500) !important;
+  --immich-ui-warning: var(--immich-ui-warning-500) !important;
+  --immich-ui-info: var(--immich-ui-info-500) !important;
+  --immich-ui-light: oklch(100% 0 0) !important;
+  --immich-ui-dark: oklch(18% 0.006 220) !important;
+  --immich-ui-muted: oklch(55% 0.008 220) !important;
+  --immich-ui-gray: oklch(96.5% 0.004 220) !important;
+  --immich-ui-default-border: var(--immich-ui-light-300) !important;
+}
+
+/* Source: src/styles/tokens/shape.css */
+:root {
+  --radius-md: 6px !important;
+  --radius-lg: 16px !important;
+  --radius-xl: 8px !important;
+  --radius-2xl: 24px !important;
+  --bliss-input-radius: 20px !important;
+  --bliss-search-radius: 999px !important;
+}
+
+/* Source: src/styles/tokens/motion.css */
+:root {
+  --default-transition-duration: 0.28s !important;
+  --default-transition-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1)
+    !important;
+}
+
+/* Source: src/styles/tokens/glass.css */
+/*
+ * Glass / frosted surfaces (CSS backdrop-filter tiers).
+ * Intent: tiered blur + saturation (vibrancy) + translucent tints on Immich RGB tokens.
+ * Native “liquid glass” shaders (Flutter) are not available in Custom CSS.
+ */
+:root {
+  /* Blur tiers: light (scrims, bars) → medium (panels, inputs) → heavy (large overlays) */
+  --bliss-glass-light: blur(12px) saturate(140%);
+  --bliss-glass-medium: blur(20px) saturate(160%);
+  --bliss-glass-heavy: blur(32px) saturate(180%);
+  /* Modal / menu overlays — tier between light and medium (@immich/ui + floating layers) */
+  --bliss-glass-dialog: blur(18px) saturate(180%);
+
+  /* Alpha multipliers for rgba(var(--immich-*-rgb), α) */
+  --bliss-glass-alpha-dark-surface: 0.55;
+  --bliss-glass-alpha-dark-surface-focus: 0.7;
+  --bliss-glass-scrim-dark: 0.4;
+  --bliss-glass-scrim-light: 0.2;
+
+  /* Legacy names — alias tiers so one place tunes blur */
+  --bliss-input-backdrop-filter: var(--bliss-glass-medium);
+  --bliss-popup-backdrop-filter: var(--bliss-glass-light);
+
+  /*
+   * Center modal shells (filter window, etc.): matte fill only — no backdrop-filter on the
+   * dialog ancestor (fixed combobox alignment). Tune darkness without re-enabling blur.
+   */
+  --bliss-dialog-matte-fill-alpha: 0.88;
+  --bliss-dialog-matte-gradient-success-alpha: 0.11;
+  --bliss-dialog-matte-gradient-primary-alpha: 0.08;
+
+  /*
+   * Shallow `[role="dialog"] > .bg-light` path only — neutral dark fill + primary gradient overlay.
+   * Center shells (`.ui-bits-dialog-content`, `[data-slot="dialog-content"]`) keep the matte tokens above.
+   */
+  --bliss-dialog-fill-rgb: 14, 15, 16;
+  --bliss-dialog-fill-alpha: 0.92;
+  --bliss-dialog-bglight-gradient-primary-alpha: 0.15;
+}
+
+/* Source: src/styles/tokens/spacing.css */
+:root {
+  --spacing: 0.25rem !important;
+}
+
+/* Source: src/styles/fonts/zalando.css */
+
+:root {
+  --font-sans: "Zalando Sans SemiExpanded", system-ui, -apple-system, sans-serif
+    !important;
+}
+
+/* Source: src/styles/profiles/max-performance.css */
+/*
+ * Max performance profile:
+ * - remove blur/compositing-heavy effects
+ * - reduce transition work
+ */
+:root {
+  --default-transition-duration: 0.12s !important;
+  --bliss-glass-light: none !important;
+  --bliss-glass-medium: none !important;
+  --bliss-glass-heavy: none !important;
+  --bliss-glass-dialog: none !important;
+  --bliss-input-backdrop-filter: none !important;
+  --bliss-popup-backdrop-filter: none !important;
+}
+
+/* Source: src/styles/foundations/dark.css */
+.dark {
+  --immich-ui-primary-950: oklch(96% 0.015 220) !important;
+  --immich-ui-primary-900: oklch(92% 0.03 220) !important;
+  --immich-ui-primary-800: oklch(85% 0.055 220) !important;
+  --immich-ui-primary-700: oklch(78% 0.078 220) !important;
+  --immich-ui-primary-600: oklch(72% 0.095 220) !important;
+  --immich-ui-primary-500: oklch(66% 0.098 220) !important;
+  --immich-ui-primary-400: oklch(50% 0.06 220) !important;
+  --immich-ui-primary-300: oklch(42% 0.045 220) !important;
+  --immich-ui-primary-200: oklch(33% 0.035 220) !important;
+  --immich-ui-primary-100: oklch(25% 0.025 220) !important;
+  --immich-ui-primary-50: oklch(18% 0.015 220) !important;
+
+  --immich-ui-success-50: oklch(0.2 0.04 150) !important;
+  --immich-ui-success-100: oklch(0.29 0.06 150) !important;
+  --immich-ui-success-200: oklch(0.4 0.085 150) !important;
+  --immich-ui-success-300: oklch(0.53 0.11 150) !important;
+  --immich-ui-success-400: oklch(0.67 0.14 150) !important;
+  --immich-ui-success-500: oklch(0.83 0.17 150) !important;
+  --immich-ui-success-600: oklch(0.87 0.15 150) !important;
+  --immich-ui-success-700: oklch(0.9 0.11 150) !important;
+  --immich-ui-success-800: oklch(0.94 0.08 150) !important;
+  --immich-ui-success-900: oklch(0.97 0.05 150) !important;
+  --immich-ui-success-950: oklch(0.985 0.03 150) !important;
+
+  --immich-ui-danger-50: oklch(0.21 0.08 25) !important;
+  --immich-ui-danger-100: oklch(0.29 0.1 25) !important;
+  --immich-ui-danger-200: oklch(0.39 0.13 25) !important;
+  --immich-ui-danger-300: oklch(0.5 0.16 25) !important;
+  --immich-ui-danger-400: oklch(0.62 0.19 25) !important;
+  --immich-ui-danger-500: oklch(0.73 0.15 25) !important;
+  --immich-ui-danger-600: oklch(0.79 0.12 25) !important;
+  --immich-ui-danger-700: oklch(0.85 0.09 25) !important;
+  --immich-ui-danger-800: oklch(0.9 0.06 25) !important;
+  --immich-ui-danger-900: oklch(0.95 0.03 25) !important;
+  --immich-ui-danger-950: oklch(0.975 0.015 25) !important;
+
+  --immich-ui-warning-50: oklch(0.2 0.04 82) !important;
+  --immich-ui-warning-100: oklch(0.29 0.06 82) !important;
+  --immich-ui-warning-200: oklch(0.43 0.09 82) !important;
+  --immich-ui-warning-300: oklch(0.58 0.12 82) !important;
+  --immich-ui-warning-400: oklch(0.73 0.15 82) !important;
+  --immich-ui-warning-500: oklch(0.87 0.09 82) !important;
+  --immich-ui-warning-600: oklch(0.91 0.07 82) !important;
+  --immich-ui-warning-700: oklch(0.94 0.05 82) !important;
+  --immich-ui-warning-800: oklch(0.96 0.03 82) !important;
+  --immich-ui-warning-900: oklch(0.98 0.015 82) !important;
+  --immich-ui-warning-950: oklch(0.99 0.008 82) !important;
+
+  --immich-ui-info-50: oklch(0.2 0.05 252) !important;
+  --immich-ui-info-100: oklch(0.28 0.07 252) !important;
+  --immich-ui-info-200: oklch(0.38 0.1 252) !important;
+  --immich-ui-info-300: oklch(0.51 0.13 252) !important;
+  --immich-ui-info-400: oklch(0.64 0.16 252) !important;
+  --immich-ui-info-500: oklch(0.77 0.12 252) !important;
+  --immich-ui-info-600: oklch(0.82 0.1 252) !important;
+  --immich-ui-info-700: oklch(0.87 0.07 252) !important;
+  --immich-ui-info-800: oklch(0.91 0.05 252) !important;
+  --immich-ui-info-900: oklch(0.95 0.03 252) !important;
+  --immich-ui-info-950: oklch(0.975 0.015 252) !important;
+
+  --immich-ui-light-50: oklch(14% 0.006 220) !important;
+  --immich-ui-light-100: oklch(18% 0.008 220) !important;
+  --immich-ui-light-200: oklch(24% 0.01 220) !important;
+  --immich-ui-light-300: oklch(32% 0.012 220) !important;
+  --immich-ui-light-400: oklch(42% 0.012 220) !important;
+  --immich-ui-light-500: oklch(52% 0.012 220) !important;
+  --immich-ui-light-600: oklch(62% 0.01 220) !important;
+  --immich-ui-light-700: oklch(72% 0.008 220) !important;
+  --immich-ui-light-800: oklch(82% 0.006 220) !important;
+  --immich-ui-light-900: oklch(90% 0.005 220) !important;
+  --immich-ui-light-950: oklch(96% 0.003 220) !important;
+
+  --immich-ui-dark-50: var(--immich-ui-light-950) !important;
+  --immich-ui-dark-100: var(--immich-ui-light-900) !important;
+  --immich-ui-dark-200: var(--immich-ui-light-800) !important;
+  --immich-ui-dark-300: var(--immich-ui-light-700) !important;
+  --immich-ui-dark-400: var(--immich-ui-light-600) !important;
+  --immich-ui-dark-500: var(--immich-ui-light-500) !important;
+  --immich-ui-dark-600: var(--immich-ui-light-400) !important;
+  --immich-ui-dark-700: var(--immich-ui-light-300) !important;
+  --immich-ui-dark-800: var(--immich-ui-light-200) !important;
+  --immich-ui-dark-900: var(--immich-ui-light-100) !important;
+  --immich-ui-dark-950: var(--immich-ui-light-50) !important;
+
+  --immich-ui-primary: var(--immich-ui-primary-500) !important;
+  --immich-ui-success: var(--immich-ui-success-500) !important;
+  --immich-ui-danger: var(--immich-ui-danger-500) !important;
+  --immich-ui-warning: var(--immich-ui-warning-500) !important;
+  --immich-ui-info: var(--immich-ui-info-500) !important;
+  --immich-ui-light: oklch(14.5% 0.008 220) !important;
+  --immich-ui-dark: oklch(96% 0.003 220) !important;
+  --immich-ui-muted: oklch(72% 0.006 220) !important;
+  --immich-ui-gray: oklch(21% 0.008 220) !important;
+  --immich-ui-default-border: var(--immich-ui-light-200) !important;
+}
+
+/* Source: src/styles/foundations/base.css */
+html {
+  font-family: var(--font-sans) !important;
+  font-weight: 400 !important;
+}
+
+/* Source: src/styles/components/buttons.css */
+/*
+ * @immich/ui Button — semantic foreground safety on filled variants.
+ * Keeps Bliss palette readable (WCAG-minded) on primary / success / warning / danger.
+ */
+
+:root {
+  --bliss-on-primary-rgb: 17, 21, 23;
+  --bliss-on-success-rgb: 255, 255, 255;
+  --bliss-on-warning-rgb: 255, 255, 255;
+  --bliss-on-danger-rgb: 255, 255, 255;
+}
+
+/*
+ * Dark mode ramps use brighter semantic fills; switch to dark foregrounds
+ * to preserve readable contrast on filled actions.
+ */
+.dark {
+  --bliss-on-primary-rgb: 17, 21, 23;
+  --bliss-on-success-rgb: 17, 21, 23;
+  --bliss-on-warning-rgb: 17, 21, 23;
+  --bliss-on-danger-rgb: 17, 21, 23;
+}
+
+:is([data-slot="button"], .ui-bits-button)[class*="bg-primary"] {
+  color: rgb(var(--bliss-on-primary-rgb)) !important;
+}
+
+:is([data-slot="button"], .ui-bits-button)[class*="bg-success"] {
+  color: rgb(var(--bliss-on-success-rgb)) !important;
+}
+
+:is([data-slot="button"], .ui-bits-button)[class*="bg-warning"] {
+  color: rgb(var(--bliss-on-warning-rgb)) !important;
+}
+
+:is([data-slot="button"], .ui-bits-button)[class*="bg-danger"] {
+  color: rgb(var(--bliss-on-danger-rgb)) !important;
+}
+
+/* Source: src/styles/components/forms.css */
+.immich-form-label {
+  color: var(--immich-ui-muted) !important;
+  font-weight: 600 !important;
+}
+
+/*
+ * Theming (surface, border, color).
+ *
+ * Do NOT put a 1px border on bare native <input>, #main-search-bar, or [data-slot="input"] here:
+ * those are usually the *inner* field inside an Immich shell (ring/container). A border on the
+ * inner input stacks with the shell, beats border:none in cascade when :not() specificity is
+ * high, and misaligns against the UA text layer — the “rectangle” glitch. Surface chrome is on
+ * the shell (immich-ui-input.css); @immich/ui primitives below keep an explicit border.
+ */
+:is(
+  .immich-form-input,
+  .ui-bits-input,
+  .ui-bits-textarea,
+  .ui-bits-select-trigger,
+  textarea,
+  [role="combobox"],
+  [data-slot="textarea"],
+  [data-slot="select-trigger"]
+) {
+  background-color: var(--immich-ui-gray) !important;
+  color: var(--immich-ui-dark) !important;
+  border: 1px solid var(--immich-ui-default-border) !important;
+  transition-property: background-color, border-color, color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+/* Inner text fields: fill + text only; edge comes from parent shell / Immich ring utilities. */
+/* Do not put #main-search-bar inside :is() with [data-slot="input"] — #id raises :is() specificity to
+   (1,0,0) for every branch, so glass/reset rules cannot override [data-slot="input"] in shells.
+   Long native input chains use :where() so :is() max specificity stays on [data-slot="input"] only. */
+/* :where() zeros specificity on long input chains so shell/glass resets can override [data-slot="input"]. */
+:is(
+  :where(
+    input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+    input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"])
+  ),
+  [data-slot="input"]
+) {
+  background-color: var(--immich-ui-gray) !important;
+  color: var(--immich-ui-dark) !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition-property: background-color, border-color, color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+#main-search-bar {
+  background-color: var(--immich-ui-gray) !important;
+  color: var(--immich-ui-dark) !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: var(--bliss-search-radius) !important;
+  transition-property: background-color, border-color, color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+:is(
+  .immich-form-input,
+  .ui-bits-input,
+  .ui-bits-textarea,
+  .ui-bits-select-trigger,
+  [data-slot="textarea"],
+  [data-slot="select-trigger"],
+  textarea,
+  [role="combobox"]
+):is(:focus, :focus-visible) {
+  border-color: var(--immich-ui-primary-500) !important;
+  background-color: var(--immich-ui-light) !important;
+  box-shadow: 0 0 0 2px rgba(var(--immich-primary-rgb), 0.3) !important;
+}
+
+:is(
+  :where(
+    input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+    input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"])
+  ),
+  [data-slot="input"]
+):is(:focus, :focus-visible) {
+  background-color: var(--immich-ui-light) !important;
+  /* Inset ring: no border on inner fields; outer glow is clipped when clip-path is used (override-policy). */
+  box-shadow: inset 0 0 0 2px rgba(var(--immich-primary-rgb), 0.3) !important;
+}
+
+#main-search-bar:is(:focus, :focus-visible) {
+  background-color: var(--immich-ui-light) !important;
+  box-shadow: inset 0 0 0 2px rgba(var(--immich-primary-rgb), 0.3) !important;
+}
+
+.dark .immich-form-label {
+  color: var(--immich-ui-dark) !important;
+}
+
+.dark :is(
+  .immich-form-input,
+  .ui-bits-input,
+  .ui-bits-textarea,
+  .ui-bits-select-trigger,
+  textarea,
+  [role="combobox"],
+  [data-slot="textarea"],
+  [data-slot="select-trigger"]
+) {
+  background-color: rgb(var(--bliss-textbox-fill)) !important;
+  color: var(--immich-ui-dark) !important;
+  border: 1px solid rgba(var(--immich-dark-fg-rgb), 0.15) !important;
+}
+
+.dark :is(
+  :where(
+    input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+    input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"])
+  ),
+  [data-slot="input"]
+) {
+  background-color: rgb(var(--bliss-textbox-fill)) !important;
+  color: var(--immich-ui-dark) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.dark #main-search-bar {
+  background-color: rgb(var(--bliss-textbox-fill)) !important;
+  color: var(--immich-ui-dark) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.dark :is(
+  .immich-form-input,
+  .ui-bits-input,
+  .ui-bits-textarea,
+  .ui-bits-select-trigger,
+  [data-slot="textarea"],
+  [data-slot="select-trigger"],
+  textarea,
+  [role="combobox"]
+):is(:focus, :focus-visible) {
+  border-color: var(--immich-ui-primary-500) !important;
+  box-shadow: 0 0 0 2px rgba(var(--immich-dark-primary-rgb), 0.3) !important;
+}
+
+.dark :is(
+  :where(
+    input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+    input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"])
+  ),
+  [data-slot="input"]
+):is(:focus, :focus-visible) {
+  box-shadow: inset 0 0 0 2px rgba(var(--immich-dark-primary-rgb), 0.3) !important;
+}
+
+.dark #main-search-bar:is(:focus, :focus-visible) {
+  box-shadow: inset 0 0 0 2px rgba(var(--immich-dark-primary-rgb), 0.3) !important;
+}
+
+/*
+ * Corner radius: do NOT set radius on bare document inputs / global [data-slot="input"] —
+ * that stacks with border+fill and replays the nested-curve bug inside Immich search shells.
+ * Radius here only on named primitives + textarea/combobox + main search + field-scoped slots.
+ */
+:is(
+  .immich-form-input,
+  .ui-bits-input,
+  .ui-bits-textarea,
+  .ui-bits-select-trigger,
+  textarea,
+  [role="combobox"],
+  [data-slot="textarea"],
+  [data-slot="select-trigger"]
+) {
+  border-radius: var(--bliss-input-radius) !important;
+}
+
+:is(.ui-bits-field, [data-slot="field"]) :is([data-slot="input"], .ui-bits-input) {
+  border-radius: var(--bliss-input-radius) !important;
+}
+
+#main-search-bar::placeholder {
+  color: var(--immich-ui-muted) !important;
+}
+
+/*
+ * UA shadow / inner editor clipping: see utilities/override-policy.css (loaded last).
+ */
+
+/* Source: src/styles/components/map-popups.css */
+.maplibregl-popup .maplibregl-popup-content {
+  background-color: rgba(var(--immich-gray-rgb), 0.95) !important;
+  -webkit-backdrop-filter: var(--bliss-popup-backdrop-filter);
+  backdrop-filter: var(--bliss-popup-backdrop-filter);
+  border: 1px solid var(--immich-ui-default-border) !important;
+  border-radius: var(--radius-xl) !important;
+}
+
+.maplibregl-popup .maplibregl-popup-tip {
+  border-top-color: rgba(var(--immich-gray-rgb), 0.95) !important;
+}
+
+.dark .maplibregl-popup .maplibregl-popup-content {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.75) !important;
+  border-color: rgba(var(--immich-dark-fg-rgb), 0.1) !important;
+}
+
+.dark .maplibregl-popup .maplibregl-popup-tip {
+  border-top-color: rgba(var(--immich-dark-gray-rgb), 0.75) !important;
+}
+
+/* Source: src/styles/components/dialogs.css */
+/*
+ * Dark overlays: center Modal vs floating surfaces (DropdownMenu, Select, Popover, Combobox).
+ *
+ * IMPORTANT: Do not set backdrop-filter on [data-slot="dialog-content"] / .ui-bits-dialog-content
+ * or shallow .bg-light modal shells. In Chromium/WebKit, backdrop-filter on an ancestor creates a
+ * containing block for position:fixed descendants. Select/Combobox panels inside the Modal can sit
+ * in that subtree; Floating UI uses viewport coordinates while fixed positioning anchors to the
+ * modal — horizontal shift. Use matte fill + hairline on modal shells; keep blur on scrims and
+ * non-modal surfaces (see tokens/glass.css).
+ *
+ * Do NOT style [data-radix-popper-content-wrapper] > div — wrong layer vs @immich/ui width vars.
+ */
+
+/* ----- Center dialogs: matte glass (gradient) + hairline — no backdrop-filter on this ancestor ----- */
+.dark .ui-bits-dialog-content,
+.dark [data-slot="dialog-content"] {
+  background-color: rgba(
+    var(--immich-dark-gray-rgb),
+    var(--bliss-dialog-matte-fill-alpha)
+  ) !important;
+  background: rgba(
+    var(--immich-dark-gray-rgb),
+    var(--bliss-dialog-matte-fill-alpha)
+  ) !important;
+  background-image: linear-gradient(
+    135deg,
+    rgba(
+      var(--immich-dark-success-rgb),
+      var(--bliss-dialog-matte-gradient-success-alpha)
+    ),
+    rgba(
+      var(--immich-dark-primary-rgb),
+      var(--bliss-dialog-matte-gradient-primary-alpha)
+    )
+  ) !important;
+  background-blend-mode: overlay !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: 0 0 0 1px rgba(var(--immich-dark-fg-rgb), 0.12) !important;
+}
+
+/*
+ * Tailwind .bg-light shell when it is the main dialog content (shallow only).
+ */
+.dark [role="dialog"] > .bg-light,
+.dark [role="dialog"] > div > .bg-light:first-child {
+  background-color: rgba(
+    var(--bliss-dialog-fill-rgb),
+    var(--bliss-dialog-fill-alpha)
+  ) !important;
+  background: rgba(
+    var(--bliss-dialog-fill-rgb),
+    var(--bliss-dialog-fill-alpha)
+  ) !important;
+  background-image: linear-gradient(
+    135deg,
+    rgba(
+      var(--immich-dark-success-rgb),
+      var(--bliss-dialog-matte-gradient-success-alpha)
+    ),
+    rgba(
+      var(--immich-dark-primary-rgb),
+      var(--bliss-dialog-bglight-gradient-primary-alpha)
+    )
+  ) !important;
+  background-blend-mode: overlay !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: 0 0 0 1px rgba(var(--immich-dark-fg-rgb), 0.08) !important;
+}
+
+/*
+ * Floating content (Select, DropdownMenu, …): matte tint only — no backdrop-filter on this layer.
+ * Do not set width/min-width here; Bits UI primitives used by @immich/ui set sizing via
+ * --bits-select-anchor-width.
+ */
+.dark .ui-bits-popover-content,
+.dark .ui-bits-dropdown-menu-content,
+.dark .ui-bits-select-content,
+.dark [data-radix-dropdown-menu-content],
+.dark [data-radix-select-content],
+.dark [data-slot="popover-content"],
+.dark [data-slot="dropdown-menu-content"],
+.dark [data-slot="select-content"],
+.dark [data-slot="combobox-content"] {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.78) !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Dropdown menus that expose role=menu without data-slot coverage */
+.dark [role="menu"] {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.78) !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Source: src/styles/components/immich-ui-input.css */
+/*
+ * @immich/ui Input — upstream behavior (see Immich monorepo: packages/ui Input/Input.svelte):
+ * - Shell div: ring + background; rounded shape applies to the container.
+ * - Inner <input>: bg-transparent; focus-within on the shell for the ring.
+ *
+ * Bliss forms.css adds border + background on inputs; that draws a second shape inside the shell.
+ */
+
+div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+  background-color: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border-radius: var(--bliss-search-radius) !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-width: 0px !important;
+  --tw-shadow: 0 0 #0000 !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+}
+
+div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):is(:focus, :focus-visible, :hover) {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: var(--immich-ui-gray) !important;
+  border-radius: var(--bliss-search-radius) !important;
+  transition-property: background-color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+.dark div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: rgb(var(--bliss-textbox-fill)) !important;
+}
+
+/*
+ * Immich web search rows (e.g. System Settings): flex items-center rounded-2xl … p-2 gap-2.
+ * Class order in HTML varies; match substrings. Inner <input> must not duplicate shell visuals.
+ * html:not(.dark) / .dark bumps specificity over Tailwind bg-gray-200 / dark:bg-* utilities.
+ */
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+  background-color: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-width: 0px !important;
+  --tw-shadow: 0 0 #0000 !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+}
+
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):is(:focus, :focus-visible, :hover) {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+  background-color: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-width: 0px !important;
+  --tw-shadow: 0 0 #0000 !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+}
+
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):is(:focus, :focus-visible, :hover) {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Bliss surface on the shell (replaces default bg-gray-200 / immich-dark-gray strip) */
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: var(--immich-ui-gray) !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: rgb(var(--bliss-textbox-fill)) !important;
+}
+
+/* Source: src/styles/components/glass-surfaces.css */
+/*
+ * Frosted glass surfaces — loads after immich-ui-input.css; overrides solid @immich/ui shell fills.
+ * Modal center shells stay matte (dialogs.css); blur here targets scrims, headers, Input shells.
+ * Selectors marked “fragile” may need checks after Immich upgrades — see README.
+ */
+
+/* -------------------------------------------------------------------------
+ * Modal backdrop scrim — dim + light blur so content behind reads out-of-focus
+ * ------------------------------------------------------------------------- */
+.dark .fixed.bg-black\/30 {
+  background-color: oklch(0% 0 0 / var(--bliss-glass-scrim-dark)) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-light);
+  backdrop-filter: var(--bliss-glass-light);
+}
+
+:root:not(.dark) .fixed.bg-black\/30 {
+  background-color: oklch(0% 0 0 / var(--bliss-glass-scrim-light)) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-light);
+  backdrop-filter: var(--bliss-glass-light);
+}
+
+/* -------------------------------------------------------------------------
+ * Input shells — Immich ≥ ~1.128: div.bg-gray-100.ring-1 (narrowed; not all bg-gray-100)
+ * ------------------------------------------------------------------------- */
+.dark
+  div.flex[class*="bg-gray-100"][class*="ring-1"]:has(
+    input:not([type="checkbox"]):not([type="radio"]):not([type="file"])
+  ) {
+  background-color: rgba(
+    var(--immich-dark-gray-rgb),
+    var(--bliss-glass-alpha-dark-surface)
+  ) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+  border-color: transparent !important;
+  transition-property: background-color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+.dark
+  div.flex[class*="bg-gray-100"][class*="ring-1"]:has(
+    input:not([type="checkbox"]):not([type="radio"]):not([type="file"])
+  ):focus-within {
+  background-color: rgba(
+    var(--immich-dark-gray-rgb),
+    var(--bliss-glass-alpha-dark-surface-focus)
+  ) !important;
+  border-color: transparent !important;
+}
+
+html:not(.dark)
+  div.flex[class*="bg-gray-100"][class*="ring-1"]:has(
+    input:not([type="checkbox"]):not([type="radio"]):not([type="file"])
+  ) {
+  background-color: rgba(var(--immich-gray-rgb), 0.82) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+  border-color: transparent !important;
+  transition-property: background-color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+html:not(.dark)
+  div.flex[class*="bg-gray-100"][class*="ring-1"]:has(
+    input:not([type="checkbox"]):not([type="radio"]):not([type="file"])
+  ):focus-within {
+  background-color: rgba(var(--immich-gray-rgb), 0.92) !important;
+}
+
+/*
+ * Border radius on an *ancestor* (rounded-2xl wrapper > flex row + input) — glass on wrapper.
+ * Without this, only .flex[rounded] on the same node matched; Immich may split classes across parents.
+ */
+html:not(.dark) [class*="rounded-2xl"]:has(> .flex[class*="items-center"] input),
+html:not(.dark) [class*="rounded-xl"]:has(> .flex[class*="items-center"] input),
+html:not(.dark) [class*="rounded-3xl"]:has(> .flex[class*="items-center"] input),
+html:not(.dark) [class*="rounded-full"]:has(> .flex[class*="items-center"] input) {
+  background-color: rgba(var(--immich-gray-rgb), 0.82) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+}
+
+.dark [class*="rounded-2xl"]:has(> .flex[class*="items-center"] input),
+.dark [class*="rounded-xl"]:has(> .flex[class*="items-center"] input),
+.dark [class*="rounded-3xl"]:has(> .flex[class*="items-center"] input),
+.dark [class*="rounded-full"]:has(> .flex[class*="items-center"] input) {
+  background-color: rgba(
+    var(--bliss-textbox-fill-rgb),
+    var(--bliss-glass-alpha-dark-surface)
+  ) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+}
+
+/* -------------------------------------------------------------------------
+ * @immich/ui search shells — same treatment as legacy immich-ui-input targets
+ * ------------------------------------------------------------------------- */
+.dark div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: rgba(
+    var(--bliss-textbox-fill-rgb),
+    var(--bliss-glass-alpha-dark-surface)
+  ) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+}
+
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: rgba(
+    var(--bliss-textbox-fill-rgb),
+    var(--bliss-glass-alpha-dark-surface)
+  ) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+}
+
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: rgba(var(--immich-gray-rgb), 0.82) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+}
+
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: rgba(var(--immich-gray-rgb), 0.82) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+}
+
+/* -------------------------------------------------------------------------
+ * Main search field — stable id + fragile class fallback (Immich churn)
+ * ------------------------------------------------------------------------- */
+.dark #main-search-bar,
+.dark input[class*="ps-14"][class*="py-4"] {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.45) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+  border: 1px solid rgba(var(--immich-dark-fg-rgb), 0.06) !important;
+  transition-property: background-color, border-color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+.dark #main-search-bar:focus,
+.dark input[class*="ps-14"][class*="py-4"]:focus {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.65) !important;
+  border-color: rgba(var(--immich-dark-primary-rgb), 0.35) !important;
+  box-shadow:
+    0 0 0 3px rgba(var(--immich-dark-primary-rgb), 0.12),
+    0 8px 32px oklch(0% 0 0 / 0.2) !important;
+}
+
+:root:not(.dark) #main-search-bar,
+:root:not(.dark) input[class*="ps-14"][class*="py-4"] {
+  background-color: rgba(var(--immich-gray-rgb), 0.85) !important;
+  border: 1px solid rgba(var(--immich-fg-rgb), 0.08) !important;
+  transition-property: background-color, border-color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+:root:not(.dark) #main-search-bar:focus,
+:root:not(.dark) input[class*="ps-14"][class*="py-4"]:focus {
+  background-color: rgb(var(--immich-bg-rgb)) !important;
+  border-color: rgba(var(--immich-primary-rgb), 0.4) !important;
+  box-shadow:
+    0 0 0 3px rgba(var(--immich-primary-rgb), 0.1),
+    0 4px 16px oklch(0% 0 0 / 0.05) !important;
+}
+
+/*
+ * Inner <input> / #main-search-bar inside Immich shells must stay transparent.
+ * Painting glass on both the shell and the inner field stacks visuals (“nested rectangle” /
+ * double edge) and overrides immich-ui-input.css. Hand-coded CSS often only targeted the
+ * input, so it did not double-apply with separate shell rules.
+ */
+.dark div.flex.w-full.items-center:not(.justify-between):has(input) #main-search-bar,
+.dark div.flex.w-full.items-center:not(.justify-between):has(input) input[class*="ps-14"][class*="py-4"],
+.dark div.flex.w-full.items-center:not(.justify-between):has(input) [data-slot="input"],
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) #main-search-bar,
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) input[class*="ps-14"][class*="py-4"],
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) [data-slot="input"],
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) #main-search-bar,
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) input[class*="ps-14"][class*="py-4"],
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input) #main-search-bar,
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input) input[class*="ps-14"][class*="py-4"],
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input) [data-slot="input"],
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) #main-search-bar,
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) input[class*="ps-14"][class*="py-4"],
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) [data-slot="input"],
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) #main-search-bar,
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) input[class*="ps-14"][class*="py-4"],
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) [data-slot="input"],
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) [data-slot="input"],
+html:not(.dark) [class*="rounded-2xl"] .flex[class*="items-center"] [data-slot="input"],
+html:not(.dark) [class*="rounded-xl"] .flex[class*="items-center"] [data-slot="input"],
+html:not(.dark) [class*="rounded-3xl"] .flex[class*="items-center"] [data-slot="input"],
+html:not(.dark) [class*="rounded-full"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-2xl"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-xl"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-3xl"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-full"] .flex[class*="items-center"] [data-slot="input"] {
+  background-color: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.dark div.flex.w-full.items-center:not(.justify-between):has(input) #main-search-bar:focus,
+.dark div.flex.w-full.items-center:not(.justify-between):has(input) input[class*="ps-14"][class*="py-4"]:focus,
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) #main-search-bar:focus,
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) input[class*="ps-14"][class*="py-4"]:focus,
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) #main-search-bar:focus,
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) input[class*="ps-14"][class*="py-4"]:focus,
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input) #main-search-bar:focus,
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input) input[class*="ps-14"][class*="py-4"]:focus,
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) #main-search-bar:focus,
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) input[class*="ps-14"][class*="py-4"]:focus,
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) #main-search-bar:focus,
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) input[class*="ps-14"][class*="py-4"]:focus,
+.dark div.flex.w-full.items-center:not(.justify-between):has(input) [data-slot="input"]:focus,
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) [data-slot="input"]:focus,
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input) [data-slot="input"]:focus,
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) [data-slot="input"]:focus,
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) [data-slot="input"]:focus,
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) [data-slot="input"]:focus,
+html:not(.dark) [class*="rounded-2xl"] .flex[class*="items-center"] [data-slot="input"]:focus,
+html:not(.dark) [class*="rounded-xl"] .flex[class*="items-center"] [data-slot="input"]:focus,
+html:not(.dark) [class*="rounded-3xl"] .flex[class*="items-center"] [data-slot="input"]:focus,
+html:not(.dark) [class*="rounded-full"] .flex[class*="items-center"] [data-slot="input"]:focus,
+.dark [class*="rounded-2xl"] .flex[class*="items-center"] [data-slot="input"]:focus,
+.dark [class*="rounded-xl"] .flex[class*="items-center"] [data-slot="input"]:focus,
+.dark [class*="rounded-3xl"] .flex[class*="items-center"] [data-slot="input"]:focus,
+.dark [class*="rounded-full"] .flex[class*="items-center"] [data-slot="input"]:focus {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* -------------------------------------------------------------------------
+ * Sticky app header — fragile: grid + border-b (verify after Immich upgrades)
+ * ------------------------------------------------------------------------- */
+.dark [class*="grid-rows-"][class*="grid-cols-"] > [class*="border-b"] {
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+  background-color: rgba(var(--immich-dark-bg-rgb), 0.7) !important;
+  border-bottom-color: rgba(var(--immich-dark-fg-rgb), 0.06) !important;
+}
+
+:root:not(.dark) [class*="grid-rows-"][class*="grid-cols-"] > [class*="border-b"] {
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+  background-color: rgba(var(--immich-bg-rgb), 0.8) !important;
+  border-bottom-color: rgba(var(--immich-fg-rgb), 0.06) !important;
+}
+
+/* -------------------------------------------------------------------------
+ * Sidebar storage widget
+ * ------------------------------------------------------------------------- */
+.dark .storage-status {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.45) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-light);
+  backdrop-filter: var(--bliss-glass-light);
+  border: 1px solid rgba(var(--immich-dark-fg-rgb), 0.05) !important;
+}
+
+/* -------------------------------------------------------------------------
+ * Svelte Select — empty ULs ghost as lines; glass only when list has items
+ * ------------------------------------------------------------------------- */
+ul.fixed[class*="overflow-y-auto"] {
+  background-color: transparent !important;
+}
+
+ul.fixed[class*="overflow-y-auto"]:has(li) {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.85) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-heavy);
+  backdrop-filter: var(--bliss-glass-heavy);
+}
+
+:root:not(.dark) ul.fixed[class*="overflow-y-auto"]:has(li) {
+  background-color: rgba(var(--immich-gray-rgb), 0.9) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-heavy);
+  backdrop-filter: var(--bliss-glass-heavy);
+}
+
+/* Source: src/styles/utilities/override-policy.css */
+/*
+ * Override policy:
+ * 1) Token variables
+ * 2) Base/foundation overrides
+ * 3) Component overrides
+ * 4) Utilities/state overrides
+ *
+ * Keep !important targeted to areas where Immich / @immich/ui defaults are more specific.
+ *
+ * Loaded LAST: wins over Immich web CSS when specificity matches.
+ */
+
+/*
+ * Native <input> UA shadow inner editor (contenteditable in DevTools) cannot be styled
+ * directly. clip-path + overflow clips the host painting area; WebKit decoration container
+ * picks up border-radius when exposed.
+ */
+input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not([type="hidden"]),
+input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]) {
+  border-radius: var(--bliss-input-radius) !important;
+  overflow: clip !important;
+  overflow: hidden !important;
+  clip-path: inset(0 round var(--bliss-input-radius)) !important;
+}
+
+#main-search-bar {
+  overflow: clip !important;
+  overflow: hidden !important;
+  clip-path: inset(0 round var(--bliss-search-radius)) !important;
+}
+
+/*
+ * Immich pill / rounded shells: inner control must use --bliss-search-radius + matching clip-path.
+ * The generic input rule above uses --bliss-input-radius; without this, a 20px inner curve clips
+ * inside a pill / rounded-2xl shell (nested rectangle). Covers same shells as immich-ui-input.css
+ * plus rounded wrapper when border radius lives on an ancestor.
+ */
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not([type="hidden"]),
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not([type="hidden"]),
+div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not([type="hidden"]),
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not([type="hidden"]),
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not([type="hidden"]),
+html:not(.dark) [class*="rounded-2xl"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+.dark [class*="rounded-2xl"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+html:not(.dark) [class*="rounded-2xl"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-2xl"] .flex[class*="items-center"] [data-slot="input"],
+html:not(.dark) [class*="rounded-xl"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+.dark [class*="rounded-xl"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+html:not(.dark) [class*="rounded-xl"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-xl"] .flex[class*="items-center"] [data-slot="input"],
+html:not(.dark) [class*="rounded-3xl"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+.dark [class*="rounded-3xl"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+html:not(.dark) [class*="rounded-3xl"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-3xl"] .flex[class*="items-center"] [data-slot="input"],
+html:not(.dark) [class*="rounded-full"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+.dark [class*="rounded-full"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+html:not(.dark) [class*="rounded-full"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-full"] .flex[class*="items-center"] [data-slot="input"] {
+  border-radius: var(--bliss-search-radius) !important;
+  clip-path: inset(0 round var(--bliss-search-radius)) !important;
+}
+
+input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"])::-webkit-textfield-decoration-container,
+input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="hidden"])::-webkit-textfield-decoration-container {
+  border-radius: inherit !important;
+}

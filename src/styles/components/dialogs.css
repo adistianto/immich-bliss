@@ -1,0 +1,104 @@
+/*
+ * Dark overlays: center Modal vs floating surfaces (DropdownMenu, Select, Popover, Combobox).
+ *
+ * IMPORTANT: Do not set backdrop-filter on [data-slot="dialog-content"] / .ui-bits-dialog-content
+ * or shallow .bg-light modal shells. In Chromium/WebKit, backdrop-filter on an ancestor creates a
+ * containing block for position:fixed descendants. Select/Combobox panels inside the Modal can sit
+ * in that subtree; Floating UI uses viewport coordinates while fixed positioning anchors to the
+ * modal — horizontal shift. Use matte fill + hairline on modal shells; keep blur on scrims and
+ * non-modal surfaces (see tokens/glass.css).
+ *
+ * Do NOT style [data-radix-popper-content-wrapper] > div — wrong layer vs @immich/ui width vars.
+ */
+
+/* ----- Center dialogs: matte glass (gradient) + hairline — no backdrop-filter on this ancestor ----- */
+.dark .ui-bits-dialog-content,
+.dark [data-slot="dialog-content"] {
+  background-color: rgba(
+    var(--immich-dark-gray-rgb),
+    var(--bliss-dialog-matte-fill-alpha)
+  ) !important;
+  background: rgba(
+    var(--immich-dark-gray-rgb),
+    var(--bliss-dialog-matte-fill-alpha)
+  ) !important;
+  background-image: linear-gradient(
+    135deg,
+    rgba(
+      var(--immich-dark-success-rgb),
+      var(--bliss-dialog-matte-gradient-success-alpha)
+    ),
+    rgba(
+      var(--immich-dark-primary-rgb),
+      var(--bliss-dialog-matte-gradient-primary-alpha)
+    )
+  ) !important;
+  background-blend-mode: overlay !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: 0 0 0 1px rgba(var(--immich-dark-fg-rgb), 0.12) !important;
+}
+
+/*
+ * Tailwind .bg-light shell when it is the main dialog content (shallow only).
+ */
+.dark [role="dialog"] > .bg-light,
+.dark [role="dialog"] > div > .bg-light:first-child {
+  background-color: rgba(
+    var(--bliss-dialog-fill-rgb),
+    var(--bliss-dialog-fill-alpha)
+  ) !important;
+  background: rgba(
+    var(--bliss-dialog-fill-rgb),
+    var(--bliss-dialog-fill-alpha)
+  ) !important;
+  background-image: linear-gradient(
+    135deg,
+    rgba(
+      var(--immich-dark-success-rgb),
+      var(--bliss-dialog-matte-gradient-success-alpha)
+    ),
+    rgba(
+      var(--immich-dark-primary-rgb),
+      var(--bliss-dialog-bglight-gradient-primary-alpha)
+    )
+  ) !important;
+  background-blend-mode: overlay !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: 0 0 0 1px rgba(var(--immich-dark-fg-rgb), 0.08) !important;
+}
+
+/*
+ * Floating content (Select, DropdownMenu, …): matte tint only — no backdrop-filter on this layer.
+ * Do not set width/min-width here; Bits UI primitives used by @immich/ui set sizing via
+ * --bits-select-anchor-width.
+ */
+.dark .ui-bits-popover-content,
+.dark .ui-bits-dropdown-menu-content,
+.dark .ui-bits-select-content,
+.dark [data-radix-dropdown-menu-content],
+.dark [data-radix-select-content],
+.dark [data-slot="popover-content"],
+.dark [data-slot="dropdown-menu-content"],
+.dark [data-slot="select-content"],
+.dark [data-slot="combobox-content"] {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.78) !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Dropdown menus that expose role=menu without data-slot coverage */
+.dark [role="menu"] {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.78) !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}

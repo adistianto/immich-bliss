@@ -1,0 +1,192 @@
+.immich-form-label {
+  color: var(--immich-ui-muted) !important;
+  font-weight: 600 !important;
+}
+
+/*
+ * Theming (surface, border, color).
+ *
+ * Do NOT put a 1px border on bare native <input>, #main-search-bar, or [data-slot="input"] here:
+ * those are usually the *inner* field inside an Immich shell (ring/container). A border on the
+ * inner input stacks with the shell, beats border:none in cascade when :not() specificity is
+ * high, and misaligns against the UA text layer — the “rectangle” glitch. Surface chrome is on
+ * the shell (immich-ui-input.css); @immich/ui primitives below keep an explicit border.
+ */
+:is(
+  .immich-form-input,
+  .ui-bits-input,
+  .ui-bits-textarea,
+  .ui-bits-select-trigger,
+  textarea,
+  [role="combobox"],
+  [data-slot="textarea"],
+  [data-slot="select-trigger"]
+) {
+  background-color: var(--immich-ui-gray) !important;
+  color: var(--immich-ui-dark) !important;
+  border: 1px solid var(--immich-ui-default-border) !important;
+  transition-property: background-color, border-color, color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+/* Inner text fields: fill + text only; edge comes from parent shell / Immich ring utilities. */
+/* Do not put #main-search-bar inside :is() with [data-slot="input"] — #id raises :is() specificity to
+   (1,0,0) for every branch, so glass/reset rules cannot override [data-slot="input"] in shells.
+   Long native input chains use :where() so :is() max specificity stays on [data-slot="input"] only. */
+/* :where() zeros specificity on long input chains so shell/glass resets can override [data-slot="input"]. */
+:is(
+  :where(
+    input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+    input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"])
+  ),
+  [data-slot="input"]
+) {
+  background-color: var(--immich-ui-gray) !important;
+  color: var(--immich-ui-dark) !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition-property: background-color, border-color, color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+#main-search-bar {
+  background-color: var(--immich-ui-gray) !important;
+  color: var(--immich-ui-dark) !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: var(--bliss-search-radius) !important;
+  transition-property: background-color, border-color, color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+:is(
+  .immich-form-input,
+  .ui-bits-input,
+  .ui-bits-textarea,
+  .ui-bits-select-trigger,
+  [data-slot="textarea"],
+  [data-slot="select-trigger"],
+  textarea,
+  [role="combobox"]
+):is(:focus, :focus-visible) {
+  border-color: var(--immich-ui-primary-500) !important;
+  background-color: var(--immich-ui-light) !important;
+  box-shadow: 0 0 0 2px rgba(var(--immich-primary-rgb), 0.3) !important;
+}
+
+:is(
+  :where(
+    input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+    input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"])
+  ),
+  [data-slot="input"]
+):is(:focus, :focus-visible) {
+  background-color: var(--immich-ui-light) !important;
+  /* Inset ring: no border on inner fields; outer glow is clipped when clip-path is used (override-policy). */
+  box-shadow: inset 0 0 0 2px rgba(var(--immich-primary-rgb), 0.3) !important;
+}
+
+#main-search-bar:is(:focus, :focus-visible) {
+  background-color: var(--immich-ui-light) !important;
+  box-shadow: inset 0 0 0 2px rgba(var(--immich-primary-rgb), 0.3) !important;
+}
+
+.dark .immich-form-label {
+  color: var(--immich-ui-dark) !important;
+}
+
+.dark :is(
+  .immich-form-input,
+  .ui-bits-input,
+  .ui-bits-textarea,
+  .ui-bits-select-trigger,
+  textarea,
+  [role="combobox"],
+  [data-slot="textarea"],
+  [data-slot="select-trigger"]
+) {
+  background-color: rgb(var(--bliss-textbox-fill)) !important;
+  color: var(--immich-ui-dark) !important;
+  border: 1px solid rgba(var(--immich-dark-fg-rgb), 0.15) !important;
+}
+
+.dark :is(
+  :where(
+    input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+    input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"])
+  ),
+  [data-slot="input"]
+) {
+  background-color: rgb(var(--bliss-textbox-fill)) !important;
+  color: var(--immich-ui-dark) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.dark #main-search-bar {
+  background-color: rgb(var(--bliss-textbox-fill)) !important;
+  color: var(--immich-ui-dark) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.dark :is(
+  .immich-form-input,
+  .ui-bits-input,
+  .ui-bits-textarea,
+  .ui-bits-select-trigger,
+  [data-slot="textarea"],
+  [data-slot="select-trigger"],
+  textarea,
+  [role="combobox"]
+):is(:focus, :focus-visible) {
+  border-color: var(--immich-ui-primary-500) !important;
+  box-shadow: 0 0 0 2px rgba(var(--immich-dark-primary-rgb), 0.3) !important;
+}
+
+.dark :is(
+  :where(
+    input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+    input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"])
+  ),
+  [data-slot="input"]
+):is(:focus, :focus-visible) {
+  box-shadow: inset 0 0 0 2px rgba(var(--immich-dark-primary-rgb), 0.3) !important;
+}
+
+.dark #main-search-bar:is(:focus, :focus-visible) {
+  box-shadow: inset 0 0 0 2px rgba(var(--immich-dark-primary-rgb), 0.3) !important;
+}
+
+/*
+ * Corner radius: do NOT set radius on bare document inputs / global [data-slot="input"] —
+ * that stacks with border+fill and replays the nested-curve bug inside Immich search shells.
+ * Radius here only on named primitives + textarea/combobox + main search + field-scoped slots.
+ */
+:is(
+  .immich-form-input,
+  .ui-bits-input,
+  .ui-bits-textarea,
+  .ui-bits-select-trigger,
+  textarea,
+  [role="combobox"],
+  [data-slot="textarea"],
+  [data-slot="select-trigger"]
+) {
+  border-radius: var(--bliss-input-radius) !important;
+}
+
+:is(.ui-bits-field, [data-slot="field"]) :is([data-slot="input"], .ui-bits-input) {
+  border-radius: var(--bliss-input-radius) !important;
+}
+
+#main-search-bar::placeholder {
+  color: var(--immich-ui-muted) !important;
+}
+
+/*
+ * UA shadow / inner editor clipping: see utilities/override-policy.css (loaded last).
+ */

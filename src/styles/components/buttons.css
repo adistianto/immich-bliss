@@ -1,0 +1,38 @@
+/*
+ * @immich/ui Button — semantic foreground safety on filled variants.
+ * Keeps Bliss palette readable (WCAG-minded) on primary / success / warning / danger.
+ */
+
+:root {
+  --bliss-on-primary-rgb: 17, 21, 23;
+  --bliss-on-success-rgb: 255, 255, 255;
+  --bliss-on-warning-rgb: 255, 255, 255;
+  --bliss-on-danger-rgb: 255, 255, 255;
+}
+
+/*
+ * Dark mode ramps use brighter semantic fills; switch to dark foregrounds
+ * to preserve readable contrast on filled actions.
+ */
+.dark {
+  --bliss-on-primary-rgb: 17, 21, 23;
+  --bliss-on-success-rgb: 17, 21, 23;
+  --bliss-on-warning-rgb: 17, 21, 23;
+  --bliss-on-danger-rgb: 17, 21, 23;
+}
+
+:is([data-slot="button"], .ui-bits-button)[class*="bg-primary"] {
+  color: rgb(var(--bliss-on-primary-rgb)) !important;
+}
+
+:is([data-slot="button"], .ui-bits-button)[class*="bg-success"] {
+  color: rgb(var(--bliss-on-success-rgb)) !important;
+}
+
+:is([data-slot="button"], .ui-bits-button)[class*="bg-warning"] {
+  color: rgb(var(--bliss-on-warning-rgb)) !important;
+}
+
+:is([data-slot="button"], .ui-bits-button)[class*="bg-danger"] {
+  color: rgb(var(--bliss-on-danger-rgb)) !important;
+}

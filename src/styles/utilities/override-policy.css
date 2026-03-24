@@ -1,0 +1,82 @@
+/*
+ * Override policy:
+ * 1) Token variables
+ * 2) Base/foundation overrides
+ * 3) Component overrides
+ * 4) Utilities/state overrides
+ *
+ * Keep !important targeted to areas where Immich / @immich/ui defaults are more specific.
+ *
+ * Loaded LAST: wins over Immich web CSS when specificity matches.
+ */
+
+/*
+ * Native <input> UA shadow inner editor (contenteditable in DevTools) cannot be styled
+ * directly. clip-path + overflow clips the host painting area; WebKit decoration container
+ * picks up border-radius when exposed.
+ */
+input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not([type="hidden"]),
+input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]) {
+  border-radius: var(--bliss-input-radius) !important;
+  overflow: clip !important;
+  overflow: hidden !important;
+  clip-path: inset(0 round var(--bliss-input-radius)) !important;
+}
+
+#main-search-bar {
+  overflow: clip !important;
+  overflow: hidden !important;
+  clip-path: inset(0 round var(--bliss-search-radius)) !important;
+}
+
+/*
+ * Immich pill / rounded shells: inner control must use --bliss-search-radius + matching clip-path.
+ * The generic input rule above uses --bliss-input-radius; without this, a 20px inner curve clips
+ * inside a pill / rounded-2xl shell (nested rectangle). Covers same shells as immich-ui-input.css
+ * plus rounded wrapper when border radius lives on an ancestor.
+ */
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not([type="hidden"]),
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not([type="hidden"]),
+div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not([type="hidden"]),
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not([type="hidden"]),
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]):not([type="color"]):not([type="hidden"]),
+html:not(.dark) [class*="rounded-2xl"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+.dark [class*="rounded-2xl"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+html:not(.dark) [class*="rounded-2xl"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-2xl"] .flex[class*="items-center"] [data-slot="input"],
+html:not(.dark) [class*="rounded-xl"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+.dark [class*="rounded-xl"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+html:not(.dark) [class*="rounded-xl"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-xl"] .flex[class*="items-center"] [data-slot="input"],
+html:not(.dark) [class*="rounded-3xl"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+.dark [class*="rounded-3xl"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+html:not(.dark) [class*="rounded-3xl"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-3xl"] .flex[class*="items-center"] [data-slot="input"],
+html:not(.dark) [class*="rounded-full"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+.dark [class*="rounded-full"] .flex[class*="items-center"] input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"]),
+html:not(.dark) [class*="rounded-full"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-full"] .flex[class*="items-center"] [data-slot="input"] {
+  border-radius: var(--bliss-search-radius) !important;
+  clip-path: inset(0 round var(--bliss-search-radius)) !important;
+}
+
+input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="url"], [type="number"])::-webkit-textfield-decoration-container,
+input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="hidden"])::-webkit-textfield-decoration-container {
+  border-radius: inherit !important;
+}
+

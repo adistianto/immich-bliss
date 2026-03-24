@@ -1,0 +1,14 @@
+---
+description: Immich Bliss engineering and UI quality standards
+alwaysApply: true
+---
+
+# Immich Bliss standards
+
+- Implement theme changes in `src/styles/*` layers: tokens, foundations, components, utilities.
+- Treat this repo as **Custom CSS** overrides on top of Immich and `@immich/ui` defaults; preserve import order in `src/styles/entrypoints/theme.css`.
+- Use `!important` only where Immich selector specificity requires it.
+- Ship a single generated bundle: `dist/immich-bliss.css`. Never hand-edit `dist/` or `DOWNLOADS/*.css`.
+- Prefer token-driven values over repeated literals.
+- Keep selectors stable and explicit so breaks after Immich upgrades are easy to find.
+- When behavior or visuals change, update `README.md` (including the override conflict notes) and relevant docs.

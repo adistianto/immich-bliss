@@ -1,0 +1,371 @@
+/*
+ * Frosted glass surfaces — loads after immich-ui-input.css; overrides solid @immich/ui shell fills.
+ * Modal center shells stay matte (dialogs.css); blur here targets scrims, headers, Input shells.
+ * Selectors marked “fragile” may need checks after Immich upgrades — see README.
+ */
+
+/* -------------------------------------------------------------------------
+ * Modal backdrop scrim — dim + light blur so content behind reads out-of-focus
+ * ------------------------------------------------------------------------- */
+.dark .fixed.bg-black\/30 {
+  background-color: oklch(0% 0 0 / var(--bliss-glass-scrim-dark)) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-light);
+  backdrop-filter: var(--bliss-glass-light);
+}
+
+:root:not(.dark) .fixed.bg-black\/30 {
+  background-color: oklch(0% 0 0 / var(--bliss-glass-scrim-light)) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-light);
+  backdrop-filter: var(--bliss-glass-light);
+}
+
+/* -------------------------------------------------------------------------
+ * Input shells — Immich ≥ ~1.128: div.bg-gray-100.ring-1 (narrowed; not all bg-gray-100)
+ * ------------------------------------------------------------------------- */
+.dark
+  div.flex[class*="bg-gray-100"][class*="ring-1"]:has(
+    input:not([type="checkbox"]):not([type="radio"]):not([type="file"])
+  ) {
+  background-color: rgba(
+    var(--immich-dark-gray-rgb),
+    var(--bliss-glass-alpha-dark-surface)
+  ) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+  border-color: transparent !important;
+  transition-property: background-color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+.dark
+  div.flex[class*="bg-gray-100"][class*="ring-1"]:has(
+    input:not([type="checkbox"]):not([type="radio"]):not([type="file"])
+  ):focus-within {
+  background-color: rgba(
+    var(--immich-dark-gray-rgb),
+    var(--bliss-glass-alpha-dark-surface-focus)
+  ) !important;
+  border-color: transparent !important;
+}
+
+html:not(.dark)
+  div.flex[class*="bg-gray-100"][class*="ring-1"]:has(
+    input:not([type="checkbox"]):not([type="radio"]):not([type="file"])
+  ) {
+  background-color: rgba(var(--immich-gray-rgb), 0.82) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+  border-color: transparent !important;
+  transition-property: background-color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+html:not(.dark)
+  div.flex[class*="bg-gray-100"][class*="ring-1"]:has(
+    input:not([type="checkbox"]):not([type="radio"]):not([type="file"])
+  ):focus-within {
+  background-color: rgba(var(--immich-gray-rgb), 0.92) !important;
+}
+
+/*
+ * Border radius on an *ancestor* (rounded-2xl wrapper > flex row + input) — glass on wrapper.
+ * Without this, only .flex[rounded] on the same node matched; Immich may split classes across parents.
+ */
+html:not(.dark) [class*="rounded-2xl"]:has(> .flex[class*="items-center"] input),
+html:not(.dark) [class*="rounded-xl"]:has(> .flex[class*="items-center"] input),
+html:not(.dark) [class*="rounded-3xl"]:has(> .flex[class*="items-center"] input),
+html:not(.dark) [class*="rounded-full"]:has(> .flex[class*="items-center"] input) {
+  background-color: rgba(var(--immich-gray-rgb), 0.82) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+}
+
+.dark [class*="rounded-2xl"]:has(> .flex[class*="items-center"] input),
+.dark [class*="rounded-xl"]:has(> .flex[class*="items-center"] input),
+.dark [class*="rounded-3xl"]:has(> .flex[class*="items-center"] input),
+.dark [class*="rounded-full"]:has(> .flex[class*="items-center"] input) {
+  background-color: rgba(
+    var(--bliss-textbox-fill-rgb),
+    var(--bliss-glass-alpha-dark-surface)
+  ) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+}
+
+/* -------------------------------------------------------------------------
+ * @immich/ui search shells — same treatment as legacy immich-ui-input targets
+ * ------------------------------------------------------------------------- */
+.dark div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: rgba(
+    var(--bliss-textbox-fill-rgb),
+    var(--bliss-glass-alpha-dark-surface)
+  ) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+}
+
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: rgba(
+    var(--bliss-textbox-fill-rgb),
+    var(--bliss-glass-alpha-dark-surface)
+  ) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+}
+
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: rgba(var(--immich-gray-rgb), 0.82) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+}
+
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: rgba(var(--immich-gray-rgb), 0.82) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+}
+
+/* -------------------------------------------------------------------------
+ * Main search field — stable id + fragile class fallback (Immich churn)
+ * ------------------------------------------------------------------------- */
+.dark #main-search-bar,
+.dark input[class*="ps-14"][class*="py-4"] {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.45) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+  border: 1px solid rgba(var(--immich-dark-fg-rgb), 0.06) !important;
+  transition-property: background-color, border-color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+.dark #main-search-bar:focus,
+.dark input[class*="ps-14"][class*="py-4"]:focus {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.65) !important;
+  border-color: rgba(var(--immich-dark-primary-rgb), 0.35) !important;
+  box-shadow:
+    0 0 0 3px rgba(var(--immich-dark-primary-rgb), 0.12),
+    0 8px 32px oklch(0% 0 0 / 0.2) !important;
+}
+
+:root:not(.dark) #main-search-bar,
+:root:not(.dark) input[class*="ps-14"][class*="py-4"] {
+  background-color: rgba(var(--immich-gray-rgb), 0.85) !important;
+  border: 1px solid rgba(var(--immich-fg-rgb), 0.08) !important;
+  transition-property: background-color, border-color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+:root:not(.dark) #main-search-bar:focus,
+:root:not(.dark) input[class*="ps-14"][class*="py-4"]:focus {
+  background-color: rgb(var(--immich-bg-rgb)) !important;
+  border-color: rgba(var(--immich-primary-rgb), 0.4) !important;
+  box-shadow:
+    0 0 0 3px rgba(var(--immich-primary-rgb), 0.1),
+    0 4px 16px oklch(0% 0 0 / 0.05) !important;
+}
+
+/*
+ * Inner <input> / #main-search-bar inside Immich shells must stay transparent.
+ * Painting glass on both the shell and the inner field stacks visuals (“nested rectangle” /
+ * double edge) and overrides immich-ui-input.css. Hand-coded CSS often only targeted the
+ * input, so it did not double-apply with separate shell rules.
+ */
+.dark div.flex.w-full.items-center:not(.justify-between):has(input) #main-search-bar,
+.dark div.flex.w-full.items-center:not(.justify-between):has(input) input[class*="ps-14"][class*="py-4"],
+.dark div.flex.w-full.items-center:not(.justify-between):has(input) [data-slot="input"],
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) #main-search-bar,
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) input[class*="ps-14"][class*="py-4"],
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) [data-slot="input"],
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) #main-search-bar,
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) input[class*="ps-14"][class*="py-4"],
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input) #main-search-bar,
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input) input[class*="ps-14"][class*="py-4"],
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input) [data-slot="input"],
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) #main-search-bar,
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) input[class*="ps-14"][class*="py-4"],
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) [data-slot="input"],
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) #main-search-bar,
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) input[class*="ps-14"][class*="py-4"],
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) [data-slot="input"],
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) [data-slot="input"],
+html:not(.dark) [class*="rounded-2xl"] .flex[class*="items-center"] [data-slot="input"],
+html:not(.dark) [class*="rounded-xl"] .flex[class*="items-center"] [data-slot="input"],
+html:not(.dark) [class*="rounded-3xl"] .flex[class*="items-center"] [data-slot="input"],
+html:not(.dark) [class*="rounded-full"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-2xl"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-xl"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-3xl"] .flex[class*="items-center"] [data-slot="input"],
+.dark [class*="rounded-full"] .flex[class*="items-center"] [data-slot="input"] {
+  background-color: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.dark div.flex.w-full.items-center:not(.justify-between):has(input) #main-search-bar:focus,
+.dark div.flex.w-full.items-center:not(.justify-between):has(input) input[class*="ps-14"][class*="py-4"]:focus,
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) #main-search-bar:focus,
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) input[class*="ps-14"][class*="py-4"]:focus,
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) #main-search-bar:focus,
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) input[class*="ps-14"][class*="py-4"]:focus,
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input) #main-search-bar:focus,
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input) input[class*="ps-14"][class*="py-4"]:focus,
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) #main-search-bar:focus,
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) input[class*="ps-14"][class*="py-4"]:focus,
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) #main-search-bar:focus,
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) input[class*="ps-14"][class*="py-4"]:focus,
+.dark div.flex.w-full.items-center:not(.justify-between):has(input) [data-slot="input"]:focus,
+.dark div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) [data-slot="input"]:focus,
+html:not(.dark) div.flex.w-full.items-center:not(.justify-between):has(input) [data-slot="input"]:focus,
+html:not(.dark) div.flex[class*="bg-gray-100"][class*="ring-1"]:has(input) [data-slot="input"]:focus,
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) [data-slot="input"]:focus,
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input) [data-slot="input"]:focus,
+html:not(.dark) [class*="rounded-2xl"] .flex[class*="items-center"] [data-slot="input"]:focus,
+html:not(.dark) [class*="rounded-xl"] .flex[class*="items-center"] [data-slot="input"]:focus,
+html:not(.dark) [class*="rounded-3xl"] .flex[class*="items-center"] [data-slot="input"]:focus,
+html:not(.dark) [class*="rounded-full"] .flex[class*="items-center"] [data-slot="input"]:focus,
+.dark [class*="rounded-2xl"] .flex[class*="items-center"] [data-slot="input"]:focus,
+.dark [class*="rounded-xl"] .flex[class*="items-center"] [data-slot="input"]:focus,
+.dark [class*="rounded-3xl"] .flex[class*="items-center"] [data-slot="input"]:focus,
+.dark [class*="rounded-full"] .flex[class*="items-center"] [data-slot="input"]:focus {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* -------------------------------------------------------------------------
+ * Sticky app header — fragile: grid + border-b (verify after Immich upgrades)
+ * ------------------------------------------------------------------------- */
+.dark [class*="grid-rows-"][class*="grid-cols-"] > [class*="border-b"] {
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+  background-color: rgba(var(--immich-dark-bg-rgb), 0.7) !important;
+  border-bottom-color: rgba(var(--immich-dark-fg-rgb), 0.06) !important;
+}
+
+:root:not(.dark) [class*="grid-rows-"][class*="grid-cols-"] > [class*="border-b"] {
+  -webkit-backdrop-filter: var(--bliss-glass-medium);
+  backdrop-filter: var(--bliss-glass-medium);
+  background-color: rgba(var(--immich-bg-rgb), 0.8) !important;
+  border-bottom-color: rgba(var(--immich-fg-rgb), 0.06) !important;
+}
+
+/* -------------------------------------------------------------------------
+ * Sidebar storage widget
+ * ------------------------------------------------------------------------- */
+.dark .storage-status {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.45) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-light);
+  backdrop-filter: var(--bliss-glass-light);
+  border: 1px solid rgba(var(--immich-dark-fg-rgb), 0.05) !important;
+}
+
+/* -------------------------------------------------------------------------
+ * Svelte Select — empty ULs ghost as lines; glass only when list has items
+ * ------------------------------------------------------------------------- */
+ul.fixed[class*="overflow-y-auto"] {
+  background-color: transparent !important;
+}
+
+ul.fixed[class*="overflow-y-auto"]:has(li) {
+  background-color: rgba(var(--immich-dark-gray-rgb), 0.85) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-heavy);
+  backdrop-filter: var(--bliss-glass-heavy);
+}
+
+:root:not(.dark) ul.fixed[class*="overflow-y-auto"]:has(li) {
+  background-color: rgba(var(--immich-gray-rgb), 0.9) !important;
+  -webkit-backdrop-filter: var(--bliss-glass-heavy);
+  backdrop-filter: var(--bliss-glass-heavy);
+}

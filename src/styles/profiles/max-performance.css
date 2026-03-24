@@ -1,0 +1,14 @@
+/*
+ * Max performance profile:
+ * - remove blur/compositing-heavy effects
+ * - reduce transition work
+ */
+:root {
+  --default-transition-duration: 0.12s !important;
+  --bliss-glass-light: none !important;
+  --bliss-glass-medium: none !important;
+  --bliss-glass-heavy: none !important;
+  --bliss-glass-dialog: none !important;
+  --bliss-input-backdrop-filter: none !important;
+  --bliss-popup-backdrop-filter: none !important;
+}

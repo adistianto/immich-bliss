@@ -1,0 +1,8 @@
+:root {
+  --radius-md: 6px !important;
+  --radius-lg: 16px !important;
+  --radius-xl: 8px !important;
+  --radius-2xl: 24px !important;
+  --bliss-input-radius: 20px !important;
+  --bliss-search-radius: 999px !important;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "immich-bliss",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Immich Bliss — Custom CSS theme for Immich, aligned with @immich/ui and Immich web tokens",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-css.mjs",
+    "build:system": "node scripts/build-css.mjs --font=system",
+    "build:inter": "node scripts/build-css.mjs --font=inter",
+    "build:zalando": "node scripts/build-css.mjs --font=zalando",
+    "build:gabarito": "node scripts/build-css.mjs --font=gabarito",
+    "build:downloads": "node scripts/build-downloads.mjs",
+    "build:perf": "node scripts/build-css.mjs --font=system --profile=max-performance",
+    "build:perf:inter": "node scripts/build-css.mjs --font=inter --profile=max-performance",
+    "build:perf:zalando": "node scripts/build-css.mjs --font=zalando --profile=max-performance",
+    "build:perf:gabarito": "node scripts/build-css.mjs --font=gabarito --profile=max-performance",
+    "check": "node scripts/build-css.mjs --font=system"
+  }
+}

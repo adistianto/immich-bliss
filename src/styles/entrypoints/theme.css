@@ -1,0 +1,29 @@
+/*
+ * Immich Bliss — override theme for Immich Custom CSS.
+ * Loads after Immich defaults; order is load order = cascade order.
+ *
+ * 1. Tokens → 2. Font + profile → 3. Foundations → 4. Components → 5. Utilities
+ *
+ * Build: dist/immich-bliss.css (see scripts/build-css.mjs)
+ */
+
+@import "../tokens/colors.css";
+@import "../tokens/shape.css";
+@import "../tokens/motion.css";
+@import "../tokens/glass.css";
+@import "../tokens/spacing.css";
+
+@import "../fonts/system.css";
+@import "../profiles/default.css";
+
+@import "../foundations/dark.css";
+@import "../foundations/base.css";
+
+@import "../components/buttons.css";
+@import "../components/forms.css";
+@import "../components/map-popups.css";
+@import "../components/dialogs.css";
+@import "../components/immich-ui-input.css";
+@import "../components/glass-surfaces.css";
+
+@import "../utilities/override-policy.css";

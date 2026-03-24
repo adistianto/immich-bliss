@@ -1,0 +1,96 @@
+.dark {
+  --immich-ui-primary-950: oklch(96% 0.015 220) !important;
+  --immich-ui-primary-900: oklch(92% 0.03 220) !important;
+  --immich-ui-primary-800: oklch(85% 0.055 220) !important;
+  --immich-ui-primary-700: oklch(78% 0.078 220) !important;
+  --immich-ui-primary-600: oklch(72% 0.095 220) !important;
+  --immich-ui-primary-500: oklch(66% 0.098 220) !important;
+  --immich-ui-primary-400: oklch(50% 0.06 220) !important;
+  --immich-ui-primary-300: oklch(42% 0.045 220) !important;
+  --immich-ui-primary-200: oklch(33% 0.035 220) !important;
+  --immich-ui-primary-100: oklch(25% 0.025 220) !important;
+  --immich-ui-primary-50: oklch(18% 0.015 220) !important;
+
+  --immich-ui-success-50: oklch(0.2 0.04 150) !important;
+  --immich-ui-success-100: oklch(0.29 0.06 150) !important;
+  --immich-ui-success-200: oklch(0.4 0.085 150) !important;
+  --immich-ui-success-300: oklch(0.53 0.11 150) !important;
+  --immich-ui-success-400: oklch(0.67 0.14 150) !important;
+  --immich-ui-success-500: oklch(0.83 0.17 150) !important;
+  --immich-ui-success-600: oklch(0.87 0.15 150) !important;
+  --immich-ui-success-700: oklch(0.9 0.11 150) !important;
+  --immich-ui-success-800: oklch(0.94 0.08 150) !important;
+  --immich-ui-success-900: oklch(0.97 0.05 150) !important;
+  --immich-ui-success-950: oklch(0.985 0.03 150) !important;
+
+  --immich-ui-danger-50: oklch(0.21 0.08 25) !important;
+  --immich-ui-danger-100: oklch(0.29 0.1 25) !important;
+  --immich-ui-danger-200: oklch(0.39 0.13 25) !important;
+  --immich-ui-danger-300: oklch(0.5 0.16 25) !important;
+  --immich-ui-danger-400: oklch(0.62 0.19 25) !important;
+  --immich-ui-danger-500: oklch(0.73 0.15 25) !important;
+  --immich-ui-danger-600: oklch(0.79 0.12 25) !important;
+  --immich-ui-danger-700: oklch(0.85 0.09 25) !important;
+  --immich-ui-danger-800: oklch(0.9 0.06 25) !important;
+  --immich-ui-danger-900: oklch(0.95 0.03 25) !important;
+  --immich-ui-danger-950: oklch(0.975 0.015 25) !important;
+
+  --immich-ui-warning-50: oklch(0.2 0.04 82) !important;
+  --immich-ui-warning-100: oklch(0.29 0.06 82) !important;
+  --immich-ui-warning-200: oklch(0.43 0.09 82) !important;
+  --immich-ui-warning-300: oklch(0.58 0.12 82) !important;
+  --immich-ui-warning-400: oklch(0.73 0.15 82) !important;
+  --immich-ui-warning-500: oklch(0.87 0.09 82) !important;
+  --immich-ui-warning-600: oklch(0.91 0.07 82) !important;
+  --immich-ui-warning-700: oklch(0.94 0.05 82) !important;
+  --immich-ui-warning-800: oklch(0.96 0.03 82) !important;
+  --immich-ui-warning-900: oklch(0.98 0.015 82) !important;
+  --immich-ui-warning-950: oklch(0.99 0.008 82) !important;
+
+  --immich-ui-info-50: oklch(0.2 0.05 252) !important;
+  --immich-ui-info-100: oklch(0.28 0.07 252) !important;
+  --immich-ui-info-200: oklch(0.38 0.1 252) !important;
+  --immich-ui-info-300: oklch(0.51 0.13 252) !important;
+  --immich-ui-info-400: oklch(0.64 0.16 252) !important;
+  --immich-ui-info-500: oklch(0.77 0.12 252) !important;
+  --immich-ui-info-600: oklch(0.82 0.1 252) !important;
+  --immich-ui-info-700: oklch(0.87 0.07 252) !important;
+  --immich-ui-info-800: oklch(0.91 0.05 252) !important;
+  --immich-ui-info-900: oklch(0.95 0.03 252) !important;
+  --immich-ui-info-950: oklch(0.975 0.015 252) !important;
+
+  --immich-ui-light-50: oklch(14% 0.006 220) !important;
+  --immich-ui-light-100: oklch(18% 0.008 220) !important;
+  --immich-ui-light-200: oklch(24% 0.01 220) !important;
+  --immich-ui-light-300: oklch(32% 0.012 220) !important;
+  --immich-ui-light-400: oklch(42% 0.012 220) !important;
+  --immich-ui-light-500: oklch(52% 0.012 220) !important;
+  --immich-ui-light-600: oklch(62% 0.01 220) !important;
+  --immich-ui-light-700: oklch(72% 0.008 220) !important;
+  --immich-ui-light-800: oklch(82% 0.006 220) !important;
+  --immich-ui-light-900: oklch(90% 0.005 220) !important;
+  --immich-ui-light-950: oklch(96% 0.003 220) !important;
+
+  --immich-ui-dark-50: var(--immich-ui-light-950) !important;
+  --immich-ui-dark-100: var(--immich-ui-light-900) !important;
+  --immich-ui-dark-200: var(--immich-ui-light-800) !important;
+  --immich-ui-dark-300: var(--immich-ui-light-700) !important;
+  --immich-ui-dark-400: var(--immich-ui-light-600) !important;
+  --immich-ui-dark-500: var(--immich-ui-light-500) !important;
+  --immich-ui-dark-600: var(--immich-ui-light-400) !important;
+  --immich-ui-dark-700: var(--immich-ui-light-300) !important;
+  --immich-ui-dark-800: var(--immich-ui-light-200) !important;
+  --immich-ui-dark-900: var(--immich-ui-light-100) !important;
+  --immich-ui-dark-950: var(--immich-ui-light-50) !important;
+
+  --immich-ui-primary: var(--immich-ui-primary-500) !important;
+  --immich-ui-success: var(--immich-ui-success-500) !important;
+  --immich-ui-danger: var(--immich-ui-danger-500) !important;
+  --immich-ui-warning: var(--immich-ui-warning-500) !important;
+  --immich-ui-info: var(--immich-ui-info-500) !important;
+  --immich-ui-light: oklch(14.5% 0.008 220) !important;
+  --immich-ui-dark: oklch(96% 0.003 220) !important;
+  --immich-ui-muted: oklch(72% 0.006 220) !important;
+  --immich-ui-gray: oklch(21% 0.008 220) !important;
+  --immich-ui-default-border: var(--immich-ui-light-200) !important;
+}

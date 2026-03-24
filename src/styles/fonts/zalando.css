@@ -1,0 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:wght@400;600&display=swap");
+
+:root {
+  --font-sans: "Zalando Sans SemiExpanded", system-ui, -apple-system, sans-serif
+    !important;
+}

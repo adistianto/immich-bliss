@@ -1,0 +1,138 @@
+:root {
+  /* Bliss text field surface (dark UI); #12191C */
+  --bliss-textbox-fill: 18 25 28 !important;
+  --bliss-textbox-fill-rgb: 18, 25, 28 !important;
+
+  /* Legacy Immich web tokens (still used by web/src/app.css). */
+  --immich-primary: 101 184 222 !important;
+  --immich-primary-rgb: 101, 184, 222 !important;
+  --immich-bg: 255 255 255 !important;
+  --immich-bg-rgb: 255, 255, 255 !important;
+  --immich-fg: 17 21 23 !important;
+  --immich-fg-rgb: 17, 21, 23 !important;
+  --immich-gray: 243 247 248 !important;
+  --immich-gray-rgb: 243, 247, 248 !important;
+  --immich-error: 182 80 80 !important;
+  --immich-error-rgb: 182, 80, 80 !important;
+  --immich-success: 90 125 68 !important;
+  --immich-success-rgb: 90, 125, 68 !important;
+  --immich-warning: 122 120 65 !important;
+  --immich-warning-rgb: 122, 120, 65 !important;
+  --immich-dark-primary: 101 184 222 !important;
+  --immich-dark-primary-rgb: 101, 184, 222 !important;
+  --immich-dark-bg: 23 28 30 !important;
+  --immich-dark-bg-rgb: 23, 28, 30 !important;
+  --immich-dark-fg: 245 250 252 !important;
+  --immich-dark-fg-rgb: 245, 250, 252 !important;
+  --immich-dark-gray: 34 38 39 !important;
+  --immich-dark-gray-rgb: 34, 38, 39 !important;
+  --immich-dark-error: 182 80 80 !important;
+  --immich-dark-error-rgb: 182, 80, 80 !important;
+  --immich-dark-success: 117 158 89 !important;
+  --immich-dark-success-rgb: 117, 158, 89 !important;
+  --immich-dark-warning: 145 142 86 !important;
+  --immich-dark-warning-rgb: 145, 142, 86 !important;
+
+}
+
+/*
+ * Tailwind v4 theme variables (light mode) — Immich web + @immich/ui.
+ * Scope light values so they do not leak into .dark via cascade/layer ordering.
+ */
+:root:not(.dark),
+.light {
+  --immich-ui-primary-50: oklch(97% 0.015 220) !important;
+  --immich-ui-primary-100: oklch(93% 0.03 220) !important;
+  --immich-ui-primary-200: oklch(86% 0.058 220) !important;
+  --immich-ui-primary-300: oklch(77% 0.088 220) !important;
+  --immich-ui-primary-400: oklch(69% 0.105 220) !important;
+  --immich-ui-primary-500: oklch(62% 0.105 220) !important;
+  --immich-ui-primary-600: oklch(54% 0.095 220) !important;
+  --immich-ui-primary-700: oklch(46% 0.08 220) !important;
+  --immich-ui-primary-800: oklch(38% 0.065 220) !important;
+  --immich-ui-primary-900: oklch(30% 0.048 220) !important;
+  --immich-ui-primary-950: oklch(22% 0.032 220) !important;
+
+  --immich-ui-success-50: oklch(0.98 0.01 150) !important;
+  --immich-ui-success-100: oklch(0.95 0.02 150) !important;
+  --immich-ui-success-200: oklch(0.9 0.04 150) !important;
+  --immich-ui-success-300: oklch(0.84 0.07 150) !important;
+  --immich-ui-success-400: oklch(0.77 0.1 150) !important;
+  --immich-ui-success-500: oklch(0.7 0.13 150) !important;
+  --immich-ui-success-600: oklch(0.59 0.11 150) !important;
+  --immich-ui-success-700: oklch(0.48 0.09 150) !important;
+  --immich-ui-success-800: oklch(0.38 0.07 150) !important;
+  --immich-ui-success-900: oklch(0.29 0.055 150) !important;
+  --immich-ui-success-950: oklch(0.22 0.042 150) !important;
+
+  --immich-ui-danger-50: oklch(0.975 0.01 25) !important;
+  --immich-ui-danger-100: oklch(0.94 0.02 25) !important;
+  --immich-ui-danger-200: oklch(0.89 0.045 25) !important;
+  --immich-ui-danger-300: oklch(0.82 0.08 25) !important;
+  --immich-ui-danger-400: oklch(0.75 0.12 25) !important;
+  --immich-ui-danger-500: oklch(0.68 0.16 25) !important;
+  --immich-ui-danger-600: oklch(0.57 0.135 25) !important;
+  --immich-ui-danger-700: oklch(0.46 0.11 25) !important;
+  --immich-ui-danger-800: oklch(0.36 0.09 25) !important;
+  --immich-ui-danger-900: oklch(0.27 0.07 25) !important;
+  --immich-ui-danger-950: oklch(0.2 0.05 25) !important;
+
+  --immich-ui-warning-50: oklch(0.985 0.008 85) !important;
+  --immich-ui-warning-100: oklch(0.96 0.02 85) !important;
+  --immich-ui-warning-200: oklch(0.92 0.04 85) !important;
+  --immich-ui-warning-300: oklch(0.88 0.07 85) !important;
+  --immich-ui-warning-400: oklch(0.84 0.1 85) !important;
+  --immich-ui-warning-500: oklch(0.8 0.13 85) !important;
+  --immich-ui-warning-600: oklch(0.67 0.11 85) !important;
+  --immich-ui-warning-700: oklch(0.53 0.09 85) !important;
+  --immich-ui-warning-800: oklch(0.4 0.07 85) !important;
+  --immich-ui-warning-900: oklch(0.28 0.05 85) !important;
+  --immich-ui-warning-950: oklch(0.22 0.04 85) !important;
+
+  --immich-ui-info-50: oklch(0.98 0.01 255) !important;
+  --immich-ui-info-100: oklch(0.93 0.025 255) !important;
+  --immich-ui-info-200: oklch(0.87 0.05 255) !important;
+  --immich-ui-info-300: oklch(0.81 0.08 255) !important;
+  --immich-ui-info-400: oklch(0.74 0.11 255) !important;
+  --immich-ui-info-500: oklch(0.67 0.14 255) !important;
+  --immich-ui-info-600: oklch(0.56 0.12 255) !important;
+  --immich-ui-info-700: oklch(0.45 0.1 255) !important;
+  --immich-ui-info-800: oklch(0.35 0.08 255) !important;
+  --immich-ui-info-900: oklch(0.26 0.06 255) !important;
+  --immich-ui-info-950: oklch(0.2 0.045 255) !important;
+
+  --immich-ui-light-50: oklch(99% 0.003 220) !important;
+  --immich-ui-light-100: oklch(97% 0.005 220) !important;
+  --immich-ui-light-200: oklch(93% 0.008 220) !important;
+  --immich-ui-light-300: oklch(87% 0.01 220) !important;
+  --immich-ui-light-400: oklch(74% 0.012 220) !important;
+  --immich-ui-light-500: oklch(61% 0.012 220) !important;
+  --immich-ui-light-600: oklch(50% 0.01 220) !important;
+  --immich-ui-light-700: oklch(40% 0.008 220) !important;
+  --immich-ui-light-800: oklch(30% 0.006 220) !important;
+  --immich-ui-light-900: oklch(22% 0.005 220) !important;
+  --immich-ui-light-950: oklch(15% 0.003 220) !important;
+
+  --immich-ui-dark-50: var(--immich-ui-light-950) !important;
+  --immich-ui-dark-100: var(--immich-ui-light-900) !important;
+  --immich-ui-dark-200: var(--immich-ui-light-800) !important;
+  --immich-ui-dark-300: var(--immich-ui-light-700) !important;
+  --immich-ui-dark-400: var(--immich-ui-light-600) !important;
+  --immich-ui-dark-500: var(--immich-ui-light-500) !important;
+  --immich-ui-dark-600: var(--immich-ui-light-400) !important;
+  --immich-ui-dark-700: var(--immich-ui-light-300) !important;
+  --immich-ui-dark-800: var(--immich-ui-light-200) !important;
+  --immich-ui-dark-900: var(--immich-ui-light-100) !important;
+  --immich-ui-dark-950: var(--immich-ui-light-50) !important;
+
+  --immich-ui-primary: var(--immich-ui-primary-500) !important;
+  --immich-ui-success: var(--immich-ui-success-500) !important;
+  --immich-ui-danger: var(--immich-ui-danger-500) !important;
+  --immich-ui-warning: var(--immich-ui-warning-500) !important;
+  --immich-ui-info: var(--immich-ui-info-500) !important;
+  --immich-ui-light: oklch(100% 0 0) !important;
+  --immich-ui-dark: oklch(18% 0.006 220) !important;
+  --immich-ui-muted: oklch(55% 0.008 220) !important;
+  --immich-ui-gray: oklch(96.5% 0.004 220) !important;
+  --immich-ui-default-border: var(--immich-ui-light-300) !important;
+}

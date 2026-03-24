@@ -1,0 +1,141 @@
+/*
+ * @immich/ui Input — upstream behavior (see Immich monorepo: packages/ui Input/Input.svelte):
+ * - Shell div: ring + background; rounded shape applies to the container.
+ * - Inner <input>: bg-transparent; focus-within on the shell for the ring.
+ *
+ * Bliss forms.css adds border + background on inputs; that draws a second shape inside the shell.
+ */
+
+div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+  background-color: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border-radius: var(--bliss-search-radius) !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-width: 0px !important;
+  --tw-shadow: 0 0 #0000 !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+}
+
+div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):is(:focus, :focus-visible, :hover) {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: var(--immich-ui-gray) !important;
+  border-radius: var(--bliss-search-radius) !important;
+  transition-property: background-color, box-shadow !important;
+  transition-duration: var(--default-transition-duration) !important;
+  transition-timing-function: var(--default-transition-timing-function) !important;
+}
+
+.dark div.flex.w-full.items-center:not(.justify-between):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: rgb(var(--bliss-textbox-fill)) !important;
+}
+
+/*
+ * Immich web search rows (e.g. System Settings): flex items-center rounded-2xl … p-2 gap-2.
+ * Class order in HTML varies; match substrings. Inner <input> must not duplicate shell visuals.
+ * html:not(.dark) / .dark bumps specificity over Tailwind bg-gray-200 / dark:bg-* utilities.
+ */
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+  background-color: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-width: 0px !important;
+  --tw-shadow: 0 0 #0000 !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+}
+
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):is(:focus, :focus-visible, :hover) {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) {
+  background-color: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  --tw-ring-offset-width: 0px !important;
+  --tw-ring-width: 0px !important;
+  --tw-shadow: 0 0 #0000 !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+}
+
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"]))
+  input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):is(:focus, :focus-visible, :hover) {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Bliss surface on the shell (replaces default bg-gray-200 / immich-dark-gray strip) */
+html:not(.dark)
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: var(--immich-ui-gray) !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.dark
+  .flex[class*="items-center"]:is(
+    [class*="rounded-2xl"],
+    [class*="rounded-xl"],
+    [class*="rounded-3xl"],
+    [class*="rounded-full"]
+  ):has(input:not([type="checkbox"]):not([type="radio"]):not([type="file"])) {
+  background-color: rgb(var(--bliss-textbox-fill)) !important;
+}

@@ -1,0 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600&display=swap");
+
+:root {
+  --font-sans: "Gabarito", system-ui, -apple-system, sans-serif !important;
+}
